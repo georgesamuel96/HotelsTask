@@ -1,10 +1,12 @@
-package com.example.georgesamuel.dubaihotels;
+package com.example.georgesamuel.dubaihotels.presentation.features.items;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.georgesamuel.dubaihotels.R;
+
+public class ListItemsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
