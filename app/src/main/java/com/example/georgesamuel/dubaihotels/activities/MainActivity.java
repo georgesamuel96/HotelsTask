@@ -2,9 +2,9 @@ package com.example.georgesamuel.dubaihotels.activities;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,11 +12,13 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.adapter.HotelAdapter;
 import com.example.georgesamuel.dubaihotels.model.Hotel;
 import com.example.georgesamuel.dubaihotels.model.HotelsResponse;
+import com.example.georgesamuel.dubaihotels.util.CheckNetwork;
 import com.example.georgesamuel.dubaihotels.util.Constants;
 import com.example.georgesamuel.dubaihotels.viewModel.HotelViewModel;
 import com.google.android.material.snackbar.Snackbar;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout mainContainer;
     @BindView(R.id.loading)
     ProgressBar loading;
+    @BindView(R.id.refreshList)
+    SwipeRefreshLayout refreshList;
     private HotelViewModel hotelViewModel;
     private HotelAdapter adapter;
     private List<Hotel> hotelList = new ArrayList<>();
@@ -62,10 +66,24 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+       getHotels();
+        refreshList.setOnRefreshListener(() -> {
 
+            if(!CheckNetwork.hasNetwork(getApplicationContext())){
+                loading.setVisibility(View.GONE);
+                Snackbar.make(mainContainer, "No Internet Connection", Snackbar.LENGTH_LONG).show();
+            }
+            else {
+                getHotels();
+            }
+            refreshList.setRefreshing(false);
+        });
+    }
 
+    private void getHotels(){
+        hotelList.clear();
+        adapter.notifyDataSetChanged();
         hotelViewModel.getHotels().observe(this, (HotelsResponse hotels) -> {
-
             loading.setVisibility(View.GONE);
             if (hotels.getMessage().equals(Constants.SUCCESS_MESSAGE)) {
                 hotelList.clear();
