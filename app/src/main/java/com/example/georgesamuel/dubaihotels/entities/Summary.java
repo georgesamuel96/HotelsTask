@@ -4,7 +4,9 @@ package com.example.georgesamuel.dubaihotels.entities;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Summary {
+import java.io.Serializable;
+
+public class Summary implements Serializable {
 
     @SerializedName("highRate")
     @Expose

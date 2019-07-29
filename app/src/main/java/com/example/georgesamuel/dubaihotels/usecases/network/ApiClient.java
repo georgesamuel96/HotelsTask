@@ -1,11 +1,19 @@
 package com.example.georgesamuel.dubaihotels.usecases.network;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
+import com.example.georgesamuel.dubaihotels.presentation.features.HotelsApplication;
+
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Cache;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 
+import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -22,7 +30,7 @@ public class ApiClient {
 
         String BASE_URL = "https://webkeyztest.getsandbox.com/";
         if (okHttpClient == null)
-            initOkHttp(context);
+            initOkHttp();
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
@@ -35,8 +43,17 @@ public class ApiClient {
         return retrofit;
     }
 
-    private static void initOkHttp(final Context context) {
 
+    public static boolean isOnline() {
+        ConnectivityManager connMgr = (ConnectivityManager)
+                HotelsApplication.getAppContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
+    }
+
+    private static void initOkHttp() {
+        int cacheSize = 10 * 1024 * 1024; // 10 MB
+        Cache cache = new Cache(HotelsApplication.getAppContext().getCacheDir(), cacheSize);
         OkHttpClient.Builder httpClient = new OkHttpClient().newBuilder()
                 .connectTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
@@ -44,12 +61,43 @@ public class ApiClient {
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
         httpClient.addInterceptor(interceptor);
+
+         httpClient.addInterceptor(offlineInterceptor()).addNetworkInterceptor(onlineInterceptor()).cache(cache);
         okHttpClient = httpClient.build();
 
     }
+    static Interceptor onlineInterceptor () {
+       return new Interceptor() {
+            @Override
+            public okhttp3.Response intercept(Chain chain) throws IOException {
+                okhttp3.Response response = chain.proceed(chain.request());
+                int maxAge = 60; // read from cache for 60 seconds even if there is internet connection
+                return response.newBuilder()
+                        .header("Cache-Control", "public, max-age=" + maxAge)
+                        .removeHeader("Pragma")
+                        .build();
+            }
+        };
 
+    }
 
+    static Interceptor offlineInterceptor(){
+
+        return new Interceptor() {
+            @Override
+            public okhttp3.Response intercept(Chain chain) throws IOException {
+                Request request = chain.request();
+                if (!isOnline()) {
+                    int maxStale = 60 * 60 * 24 * 7; // Offline cache available for 7 days
+                    request = request.newBuilder()
+                            .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
+                            .removeHeader("Pragma")
+                            .build();
+                }
+                return chain.proceed(request);
+            }
+        };
+    }
 
 }
