@@ -30,7 +30,7 @@ public class HotelViewModel extends AndroidViewModel {
 
     public HotelViewModel(@NonNull Application application) {
         super(application);
-        clientAPI = RetrofitClient.getInstance();
+        clientAPI = RetrofitClient.getInstance(application.getApplicationContext());
     }
 
     public LiveData<HotelsResponse> getHotels(){
