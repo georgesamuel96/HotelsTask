@@ -17,7 +17,7 @@ public class HotelsRepository {
        hotelsAPI= ApiClient.getClient(HotelsApplication.getAppContext()).create(HotelsAPI.class);
     }
 
-    public Observable<List<HotelsDetailsModel>> getHotelsDetails(){
+    public Observable<HotelsDetailsModel> getHotelsDetails(){
         return hotelsAPI.getHotelsDetails();
     }
 }

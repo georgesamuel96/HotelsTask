@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.entities.HotelsDetailsModel;
@@ -21,10 +22,10 @@ public class ListItemsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ListItemsViewModel viewModel= ViewModelProviders.of(this).get(ListItemsViewModel.class);
         viewModel.getDetails();
-        viewModel.result.observe(this, new Observer<List<HotelsDetailsModel>>() {
+        viewModel.result.observe(this, new Observer<HotelsDetailsModel>() {
             @Override
-            public void onChanged(List<HotelsDetailsModel> list) {
-            String name=    list.get(0).getHotel().toString();
+            public void onChanged(HotelsDetailsModel list) {
+            String name=  list.getHotel().get(0).getHotelId().toString();
                 Log.e("name",name);
             }
         });

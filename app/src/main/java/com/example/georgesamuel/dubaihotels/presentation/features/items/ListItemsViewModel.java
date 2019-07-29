@@ -1,6 +1,7 @@
 package com.example.georgesamuel.dubaihotels.presentation.features.items;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -20,7 +21,7 @@ import io.reactivex.schedulers.Schedulers;
 public class ListItemsViewModel extends ViewModel {
 
 
-    public MutableLiveData<List<HotelsDetailsModel>> result;
+    public MutableLiveData<HotelsDetailsModel> result;
     private MutableLiveData<Boolean> retreiving;
     private HotelsItemsUseCase useCase;
     private CompositeDisposable compositeDisposable;
@@ -32,20 +33,22 @@ public class ListItemsViewModel extends ViewModel {
         compositeDisposable=new CompositeDisposable();
     }
 
-    public void getDetails(){
+        void getDetails(){
 
-       Observable<List<HotelsDetailsModel>> call=useCase.getHotelsDetails();
+       Observable<HotelsDetailsModel> call=useCase.getHotelsDetails();
        Disposable disposable= call.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableObserver <List<HotelsDetailsModel>>() {
+                .subscribeWith(new DisposableObserver <HotelsDetailsModel>() {
                     @Override
-                    public void onNext(List<HotelsDetailsModel> hotelsDetailsList) {
+                    public void onNext(HotelsDetailsModel hotelsDetailsList) {
+                        Log.e("hdgsd",hotelsDetailsList.getHotel().get(0).getHotelId().toString());
                        result.postValue(hotelsDetailsList);
                        retreiving.postValue(false);
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        Log.e("error",e.getMessage());
                         retreiving.postValue(false);
                     }
 

@@ -10,6 +10,6 @@ import io.reactivex.Observable;
 public interface HotelsAPI {
 
     @GET("hotels")
-    Observable<List<HotelsDetailsModel>>  getHotelsDetails ();
+    Observable<HotelsDetailsModel>  getHotelsDetails ();
 
 }
