@@ -6,8 +6,10 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.adapter.HotelAdapter;
@@ -49,9 +51,11 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(getString(R.string.hotels));
         toolbar.setNavigationOnClickListener(view -> finish());
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+
 
         hotelViewModel.getHotels(mainContainer).observe(this, (List<Hotel> hotels) -> {
             hotelList.clear();
