@@ -15,7 +15,6 @@ public class RetrofitClient {
     }
 
     public static ClientAPI getInstance(){
-
         if(clientAPI == null){
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
             loggingInterceptor.level(HttpLoggingInterceptor.Level.BODY);
@@ -32,7 +31,6 @@ public class RetrofitClient {
 
             clientAPI = retrofit.create(ClientAPI.class);
         }
-
         return clientAPI;
     }
 }

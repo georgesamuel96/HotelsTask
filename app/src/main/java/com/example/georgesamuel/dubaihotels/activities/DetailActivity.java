@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -15,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.georgesamuel.dubaihotels.R;
+import com.example.georgesamuel.dubaihotels.util.Constants;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -33,22 +35,22 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
     @BindView(R.id.hotelImage)
     ImageView hotelImage;
     @BindView(R.id.hotelName)
-    TextView hotelName;
+    TextView hotelNameTV;
     @BindView(R.id.hotelAddress)
-    TextView hotelAddress;
+    TextView hotelAddressTV;
     @BindView(R.id.highRate)
     TextView highRate;
     @BindView(R.id.lowRate)
     TextView lowRate;
     @BindView(R.id.mapView)
     MapView mapView;
-    private String hotel_image_url;
-    private String hotel_name;
-    private String hotel_address;
-    private double hotel_high_rate;
-    private double hotel_low_rate;
-    private double hotel_longitude;
-    private double hotel_latitude;
+    private String hotelImageUrl;
+    private String hotelName;
+    private String hotelAddress;
+    private double hotelHighRate;
+    private double hotelLowRate;
+    private double hotelLongitude;
+    private double hotelLatitude;
     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
 
     @Override
@@ -56,48 +58,37 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
+
         getAttributes();
         init(savedInstanceState);
         setFields();
+
     }
 
     private void setFields() {
-        Glide.with(DetailActivity.this).load(hotel_image_url).into(hotelImage);
-        hotelName.setText(hotel_name);
-        hotelAddress.setText(hotel_address);
-        highRate.setText("High rate: " + hotel_high_rate);
-        lowRate.setText("Low rate: " + hotel_low_rate);
+        Glide.with(DetailActivity.this).load(hotelImageUrl).into(hotelImage);
+        hotelNameTV.setText(hotelName);
+        hotelAddressTV.setText(hotelAddress);
+        highRate.setText("High rate: " + hotelHighRate);
+        lowRate.setText("Low rate: " + hotelLowRate);
     }
 
     private void getAttributes() {
-        hotel_image_url = getIntent().getStringExtra("url");
-        hotel_name = getIntent().getStringExtra("name");
-        hotel_address = getIntent().getStringExtra("address");
-        hotel_high_rate = getIntent().getDoubleExtra("high", 0.0);
-        hotel_low_rate = getIntent().getDoubleExtra("low", 0.0);
-        hotel_longitude = getIntent().getDoubleExtra("longitude", 0.0);
-        hotel_latitude = getIntent().getDoubleExtra("latitude", 0.0);
+        hotelImageUrl = getIntent().getStringExtra(Constants.EXTRA_HOTEL_IMAGE_URL);
+        hotelName = getIntent().getStringExtra(Constants.EXTRA_HOTEL_NAME);
+        hotelAddress = getIntent().getStringExtra(Constants.EXTRA_HOTEL_ADDRESS);
+        hotelHighRate = getIntent().getDoubleExtra(Constants.EXTRA_HOTEL_HIGH, 0.0);
+        hotelLowRate = getIntent().getDoubleExtra(Constants.EXTRA_HOTEL_LOW, 0.0);
+        hotelLongitude = getIntent().getDoubleExtra(Constants.EXTRA_HOTEL_LONGITUDE, 0.0);
+        hotelLatitude = getIntent().getDoubleExtra(Constants.EXTRA_HOTEL_LATITUDE, 0.0);
     }
 
     private void init(Bundle savedInstanceState) {
-        toolbar = findViewById(R.id.toolbar);
-        hotelImage = findViewById(R.id.hotelImage);
-        hotelName = findViewById(R.id.hotelName);
-        hotelAddress = findViewById(R.id.hotelAddress);
-        highRate = findViewById(R.id.highRate);
-        lowRate = findViewById(R.id.lowRate);
-
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Details");
+        getSupportActionBar().setTitle(getString(R.string.details));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        toolbar.setNavigationOnClickListener(view -> finish());
 
         Bundle bundle = null;
         if (savedInstanceState != null) {
@@ -111,9 +102,8 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(hotel_latitude, hotel_longitude)).title(hotel_name));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(hotel_latitude, hotel_longitude), 15f));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(hotelLatitude, hotelLongitude)).title(hotelName));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(hotelLatitude, hotelLongitude), 15f));
     }
 
     @Override
@@ -125,7 +115,6 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
             bundle = new Bundle();
             outState.putBundle(MAPVIEW_BUNDLE_KEY, bundle);
         }
-
         mapView.onSaveInstanceState(bundle);
     }
 
@@ -167,23 +156,14 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
 
     @OnClick(R.id.hotelImage)
     public void onViewClicked() {
-
         AlertDialog.Builder alert = new AlertDialog.Builder(DetailActivity.this);
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.image_fullscreen, null);
         alert.setView(dialogView);
         AlertDialog alertDialog = alert.create();
-
         ImageView image = dialogView.findViewById(R.id.image);
-
-        Glide.with(DetailActivity.this).load(hotel_image_url).into(image);
+        Glide.with(DetailActivity.this).load(hotelImageUrl).into(image);
         alertDialog.show();
-
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog.cancel();
-            }
-        });
+        image.setOnClickListener(view -> alertDialog.cancel());
     }
 }
