@@ -3,13 +3,15 @@ package com.example.georgesamuel.dubaihotels.presentation.features.details;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity;
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.entities.Hotel;
 import com.squareup.picasso.Picasso;
@@ -40,7 +42,11 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     @BindView(R.id.back_image_view)
     ImageView backImageView;
 
+    @BindView(R.id.open_map_button)
+    Button openMapButton;
+
     boolean isImageFitToScreen;
+    private Hotel hotel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +54,14 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_details);
         ButterKnife.bind(this);
         if (getIntent() != null) {
-            Hotel hotel = (Hotel) getIntent().getSerializableExtra("Details");
+             hotel = (Hotel) getIntent().getSerializableExtra("Details");
             setData(hotel);
         }
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         backImageView.setOnClickListener(this);
         hotelPicImageView.setOnClickListener(this);
+        openMapButton.setOnClickListener(this::onClick);
 
     }
 
@@ -79,6 +86,17 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
 
             case R.id.back_image_view:
                 finish();
+                break;
+
+                case R.id.open_map_button:
+                    Intent intent=new Intent(this, MapActivity.class);
+                    if(hotel!=null){
+                    intent.putExtra("lang",hotel.getLocation().getLongitude());
+                    intent.putExtra("lat",hotel.getLocation().getLatitude());
+                    intent.putExtra("hotelName",hotel.getSummary().getHotelName());
+                    }
+
+                    startActivity(intent);
                 break;
             case R.id.details_pic_image_view:
                 if (isImageFitToScreen) {

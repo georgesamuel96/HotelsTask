@@ -59,12 +59,10 @@
             android:gravity="center" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
+   <Button
+       android:id="@+id/open_map_button"
+       android:text="OpenMap"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

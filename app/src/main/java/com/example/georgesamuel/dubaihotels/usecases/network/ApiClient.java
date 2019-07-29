@@ -6,7 +6,6 @@ import android.net.NetworkInfo;
 
 import com.example.georgesamuel.dubaihotels.presentation.features.HotelsApplication;
 
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
@@ -68,35 +67,29 @@ public class ApiClient {
 
     }
     static Interceptor onlineInterceptor () {
-       return new Interceptor() {
-            @Override
-            public okhttp3.Response intercept(Chain chain) throws IOException {
-                okhttp3.Response response = chain.proceed(chain.request());
-                int maxAge = 60; // read from cache for 60 seconds even if there is internet connection
-                return response.newBuilder()
-                        .header("Cache-Control", "public, max-age=" + maxAge)
-                        .removeHeader("Pragma")
-                        .build();
-            }
-        };
+       return chain -> {
+           okhttp3.Response response = chain.proceed(chain.request());
+           int maxAge = 60; // read from cache for 60 seconds even if there is internet connection
+           return response.newBuilder()
+                   .header("Cache-Control", "public, max-age=" + maxAge)
+                   .removeHeader("Pragma")
+                   .build();
+       };
 
     }
 
     static Interceptor offlineInterceptor(){
 
-        return new Interceptor() {
-            @Override
-            public okhttp3.Response intercept(Chain chain) throws IOException {
-                Request request = chain.request();
-                if (!isOnline()) {
-                    int maxStale = 60 * 60 * 24 * 7; // Offline cache available for 7 days
-                    request = request.newBuilder()
-                            .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
-                            .removeHeader("Pragma")
-                            .build();
-                }
-                return chain.proceed(request);
+        return chain -> {
+            Request request = chain.request();
+            if (!isOnline()) {
+                int maxStale = 60 * 60 * 24 * 7; // Offline cache available for 7 days
+                request = request.newBuilder()
+                        .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
+                        .removeHeader("Pragma")
+                        .build();
             }
+            return chain.proceed(request);
         };
     }
 
