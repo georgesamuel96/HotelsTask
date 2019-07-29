@@ -8,4 +8,5 @@ public class Constants {
     public static final String EXTRA_HOTEL_LOW = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_LOW";
     public static final String EXTRA_HOTEL_LONGITUDE = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_LONGITUDE";
     public static final String EXTRA_HOTEL_LATITUDE = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_LATITUDE";
+    public static final String SUCCESS_MESSAGE = "com.example.georgesamuel.dubaihotels.util.SUCCESS_MESSAGE";
 }

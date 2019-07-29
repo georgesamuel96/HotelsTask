@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Hotel {
 
+    private String message;
     @SerializedName("hotelId")
     private int hotelId;
     @SerializedName("image")
@@ -47,4 +48,11 @@ public class Hotel {
         this.summary = summary;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

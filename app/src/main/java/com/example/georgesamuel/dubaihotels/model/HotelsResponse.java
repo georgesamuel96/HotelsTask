@@ -6,6 +6,7 @@ import java.util.List;
 
 public class HotelsResponse {
 
+    private String message;
     @SerializedName("hotel")
     private List<Hotel> hotel = null;
 
@@ -17,5 +18,11 @@ public class HotelsResponse {
         this.hotel = hotel;
     }
 
+    public String getMessage() {
+        return message;
+    }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

@@ -13,6 +13,7 @@ import com.example.georgesamuel.dubaihotels.model.Hotel;
 import com.example.georgesamuel.dubaihotels.model.HotelsResponse;
 import com.example.georgesamuel.dubaihotels.remote.ClientAPI;
 import com.example.georgesamuel.dubaihotels.remote.RetrofitClient;
+import com.example.georgesamuel.dubaihotels.util.Constants;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
@@ -23,7 +24,7 @@ import retrofit2.Response;
 
 public class HotelViewModel extends AndroidViewModel {
 
-    private MutableLiveData<List<Hotel>> hotelsList = new MutableLiveData<>();
+    private MutableLiveData<HotelsResponse> hotelsList = new MutableLiveData<>();
     private ClientAPI clientAPI;
     private static final String TAG = HotelViewModel.class.getSimpleName();
 
@@ -32,19 +33,21 @@ public class HotelViewModel extends AndroidViewModel {
         clientAPI = RetrofitClient.getInstance();
     }
 
-    public LiveData<List<Hotel>> getHotels(View contentView){
+    public LiveData<HotelsResponse> getHotels(){
         clientAPI.getHotels().enqueue(new Callback<HotelsResponse>() {
             @Override
             public void onResponse(Call<HotelsResponse> call, Response<HotelsResponse> response) {
                 HotelsResponse hotelsResponse = response.body();
                 if(hotelsResponse != null) {
-                    hotelsList.postValue(hotelsResponse.getHotel());
+                    hotelsResponse.setMessage(Constants.SUCCESS_MESSAGE);
+                    hotelsList.postValue(hotelsResponse);
                 }
             }
             @Override
             public void onFailure(Call<HotelsResponse> call, Throwable t) {
-                Snackbar.make(contentView, t.getMessage(), Snackbar.LENGTH_LONG)
-                        .setAction(getApplication().getString(R.string.ok), view -> {}).show();
+                HotelsResponse response = new HotelsResponse();
+                response.setMessage(t.getMessage());
+                hotelsList.postValue(response);
             }
         });
 
