@@ -1,13 +1,14 @@
 package com.example.georgesamuel.dubaihotels.activities;
 
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.view.View;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.adapter.HotelAdapter;
@@ -17,11 +18,17 @@ import com.example.georgesamuel.dubaihotels.viewModel.HotelViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
     private HotelViewModel hotelViewModel;
-    private RecyclerView recyclerView;
-    private androidx.appcompat.widget.Toolbar toolbar;
+
 
     private HotelAdapter adapter;
     private List<Hotel> hotelList = new ArrayList<>();
@@ -30,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         init();
     }

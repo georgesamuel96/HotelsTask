@@ -20,6 +20,9 @@ import com.google.android.material.card.MaterialCardView;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHolder>{
 
     private Context context;
@@ -68,16 +71,16 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
 
     static class HotelViewHolder extends RecyclerView.ViewHolder{
 
-        private MaterialCardView cardView;
-        private ImageView hotelImage;
-        private TextView hotelName;
+        @BindView(R.id.card)
+        MaterialCardView cardView;
+        @BindView(R.id.hotelImage)
+        ImageView hotelImage;
+        @BindView(R.id.hotelName)
+        TextView hotelName;
 
         public HotelViewHolder(View view){
             super(view);
-
-            cardView = view.findViewById(R.id.card);
-            hotelImage = view.findViewById(R.id.hotelImage);
-            hotelName = view.findViewById(R.id.hotelName);
+            ButterKnife.bind(this, view);
         }
     }
 }
