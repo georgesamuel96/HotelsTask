@@ -22,8 +22,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ItemsViewHolder> {
-
-
     private Context context;
     private List<Hotel> list;
 
