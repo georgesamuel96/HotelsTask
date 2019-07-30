@@ -42,12 +42,12 @@ public class HotelsListActivity extends AppCompatActivity {
 
         HotelViewModel viewModel = ViewModelProviders.of(this).get(HotelViewModel.class);
         viewModel.getDetails();
-        viewModel.result.observe(this, detailsModel -> {
+        viewModel.hotelsDetailsLiveData.observe(this, detailsModel -> {
             String name = detailsModel.getHotel().get(0).getHotelId().toString();
             Log.e("name", name);
             fillList(detailsModel.getHotel());
         });
-        viewModel.retrieving.observe(this, isRetrieve -> {
+        viewModel.isLoadingLiveData.observe(this, isRetrieve -> {
             if (isRetrieve) {
                 progressDialog.show();
             } else {

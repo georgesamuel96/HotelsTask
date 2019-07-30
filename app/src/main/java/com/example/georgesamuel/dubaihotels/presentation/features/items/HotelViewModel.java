@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.georgesamuel.dubaihotels.entities.HotelsDetailsModel;
-import com.example.georgesamuel.dubaihotels.usecases.HotelsItemsUseCase;
+import com.example.georgesamuel.dubaihotels.usecases.HotelsUseCase;
 
 
 import io.reactivex.Observable;
@@ -16,35 +16,34 @@ import io.reactivex.schedulers.Schedulers;
 
 public class HotelViewModel extends ViewModel {
 
-
-    MutableLiveData<HotelsDetailsModel> result;
-    MutableLiveData<Boolean> retrieving;
-    private HotelsItemsUseCase useCase;
+    MutableLiveData<HotelsDetailsModel> hotelsDetailsLiveData;
+    MutableLiveData<Boolean> isLoadingLiveData;
+    private HotelsUseCase hotelsUseCase;
     private CompositeDisposable compositeDisposable;
 
     public HotelViewModel() {
-        result=new MutableLiveData<>();
-        retrieving =new MutableLiveData<>();
-        useCase=new HotelsItemsUseCase();
+        hotelsDetailsLiveData =new MutableLiveData<>();
+        isLoadingLiveData =new MutableLiveData<>();
+        hotelsUseCase =new HotelsUseCase();
         compositeDisposable=new CompositeDisposable();
     }
 
         void getDetails(){
 
-        retrieving.setValue(true);
-       Observable<HotelsDetailsModel> call=useCase.getHotelsDetails();
+        isLoadingLiveData.setValue(true);
+       Observable<HotelsDetailsModel> call= hotelsUseCase.getHotelsDetails();
        Disposable disposable= call.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableObserver <HotelsDetailsModel>() {
                     @Override
                     public void onNext(HotelsDetailsModel hotelsDetailsList) {
-                       result.postValue(hotelsDetailsList);
-                       retrieving.postValue(false);
+                       hotelsDetailsLiveData.postValue(hotelsDetailsList);
+                       isLoadingLiveData.postValue(false);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        retrieving.postValue(false);
+                        isLoadingLiveData.postValue(false);
                     }
 
                     @Override

@@ -7,11 +7,11 @@ import com.example.georgesamuel.dubaihotels.usecases.hotelsrepository.HotelsRepo
 import io.reactivex.Observable;
 
 
-public class HotelsItemsUseCase {
+public class HotelsUseCase {
 
   private  HotelsRepository hotelsRepository;
 
-    public HotelsItemsUseCase() {
+    public HotelsUseCase() {
         hotelsRepository=new HotelsRepository();
 
     }
