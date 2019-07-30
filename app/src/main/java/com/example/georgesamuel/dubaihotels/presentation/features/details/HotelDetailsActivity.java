@@ -18,8 +18,9 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class HotelDetailsActivity extends AppCompatActivity implements View.OnClickListener {
+public class HotelDetailsActivity extends AppCompatActivity  {
 
     @BindView(R.id.hotel_name_details_text_view)
     TextView hotelNameTextView;
@@ -59,9 +60,6 @@ public class HotelDetailsActivity extends AppCompatActivity implements View.OnCl
         }
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        backImageView.setOnClickListener(this);
-        hotelPicImageView.setOnClickListener(this);
-        openMapButton.setOnClickListener(this::onClick);
 
     }
 
@@ -80,38 +78,34 @@ public class HotelDetailsActivity extends AppCompatActivity implements View.OnCl
 
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
+    @OnClick(R.id.back_image_view)
+    void setBack(View view) {
+        finish();
+    }
 
-            case R.id.back_image_view:
-                finish();
-                break;
 
-                case R.id.open_map_button:
-                    Intent intent=new Intent(this, MapActivity.class);
-                    if(hotel!=null){
-                    intent.putExtra("lang",hotel.getLocation().getLongitude());
-                    intent.putExtra("lat",hotel.getLocation().getLatitude());
-                    intent.putExtra("hotelName",hotel.getSummary().getHotelName());
-                    }
-
-                    startActivity(intent);
-                break;
-            case R.id.details_pic_image_view:
-                if (isImageFitToScreen) {
-                    isImageFitToScreen = false;
-                    hotelPicImageView.setLayoutParams(new LinearLayoutCompat.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT, LinearLayoutCompat.LayoutParams.WRAP_CONTENT));
-                    hotelPicImageView.setAdjustViewBounds(true);
-                    hotelPicImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                } else {
-                    isImageFitToScreen = true;
-                    hotelPicImageView.setLayoutParams(new LinearLayoutCompat.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT, LinearLayoutCompat.LayoutParams.MATCH_PARENT));
-                }
-                break;
-                default:
-                    break;
-
+    @OnClick(R.id.details_pic_image_view)
+    void zoomImage(View view) {
+        if (isImageFitToScreen) {
+            isImageFitToScreen = false;
+            hotelPicImageView.setLayoutParams(new LinearLayoutCompat.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT, LinearLayoutCompat.LayoutParams.WRAP_CONTENT));
+            hotelPicImageView.setAdjustViewBounds(true);
+            hotelPicImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        } else {
+            isImageFitToScreen = true;
+            hotelPicImageView.setLayoutParams(new LinearLayoutCompat.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT, LinearLayoutCompat.LayoutParams.MATCH_PARENT));
         }
     }
+
+    @OnClick(R.id.open_map_button)
+    void openMap(View view) {
+        Intent intent=new Intent(this, MapActivity.class);
+        if(hotel!=null){
+            intent.putExtra("lang",hotel.getLocation().getLongitude());
+            intent.putExtra("lat",hotel.getLocation().getLatitude());
+            intent.putExtra("hotelName",hotel.getSummary().getHotelName());
+        }
+        startActivity(intent);
+    }
+
 }
