@@ -76,12 +76,9 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ItemsViewHol
     }
 
     private void setUpItemClick(View itemView, Hotel hotel) {
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, HotelDetailsActivity.class);
-                intent.putExtra("Details", hotel);
-                context.startActivity(intent);            }
-        });
+        itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, HotelDetailsActivity.class);
+            intent.putExtra("Details", hotel);
+            context.startActivity(intent);            });
     }
 }

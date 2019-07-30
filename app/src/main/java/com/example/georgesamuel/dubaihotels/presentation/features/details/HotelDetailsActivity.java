@@ -20,6 +20,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity.HOTEL_NAME_CONSTANT;
+import static com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity.LATITUDE_CONSTANT;
+import static com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity.LONGITUDE_CONSTANT;
+
 public class HotelDetailsActivity extends AppCompatActivity  {
 
     @BindView(R.id.hotel_name_details_text_view)
@@ -101,9 +105,9 @@ public class HotelDetailsActivity extends AppCompatActivity  {
     void openMap(View view) {
         Intent intent=new Intent(this, MapActivity.class);
         if(hotel!=null){
-            intent.putExtra("lang",hotel.getLocation().getLongitude());
-            intent.putExtra("lat",hotel.getLocation().getLatitude());
-            intent.putExtra("hotelName",hotel.getSummary().getHotelName());
+            intent.putExtra(LONGITUDE_CONSTANT,hotel.getLocation().getLongitude());
+            intent.putExtra(LATITUDE_CONSTANT,hotel.getLocation().getLatitude());
+            intent.putExtra(HOTEL_NAME_CONSTANT,hotel.getSummary().getHotelName());
         }
         startActivity(intent);
     }

@@ -19,6 +19,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private double longitude;
     private double latitude;
     private String hotelName;
+    public static final String LONGITUDE_CONSTANT ="lang";
+    public static final String LATITUDE_CONSTANT ="lat";
+    public static final String HOTEL_NAME_CONSTANT ="hotelName";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +31,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         if(getIntent()!=null){
-            longitude =getIntent().getExtras().getDouble("lang");
-            latitude=getIntent().getExtras().getDouble("lat");
-            hotelName=getIntent().getExtras().getString("hotelName");
+            longitude =getIntent().getDoubleExtra(LONGITUDE_CONSTANT,0);
+            latitude=getIntent().getDoubleExtra(LATITUDE_CONSTANT,0);
+            hotelName=getIntent().getStringExtra(HOTEL_NAME_CONSTANT);
 
         }
     }
