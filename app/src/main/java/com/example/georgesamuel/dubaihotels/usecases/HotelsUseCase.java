@@ -5,6 +5,8 @@ import com.example.georgesamuel.dubaihotels.entities.HotelsResponse;
 import com.example.georgesamuel.dubaihotels.usecases.hotelsrepository.HotelsRepository;
 
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 
 public class HotelsUseCase {
@@ -17,6 +19,7 @@ public class HotelsUseCase {
     }
 
     public Observable<HotelsResponse> getHotelsDetails(){
-       return hotelsRepository.getHotelsDetails();
+       return hotelsRepository.getHotelsDetails().subscribeOn(Schedulers.io())
+               .observeOn(AndroidSchedulers.mainThread());
     }
 }

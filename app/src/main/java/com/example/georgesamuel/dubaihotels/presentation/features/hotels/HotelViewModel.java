@@ -35,8 +35,7 @@ public class HotelViewModel extends ViewModel {
       private void getDetails(){
        isLoadingLiveData.setValue(true);
        Observable<HotelsResponse> call= hotelsUseCase.getHotelsDetails();
-       Disposable disposable= call.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+       Disposable disposable= call
                 .subscribeWith(new DisposableObserver <HotelsResponse>() {
                     @Override
                     public void onNext(HotelsResponse hotelsDetailsList) {
