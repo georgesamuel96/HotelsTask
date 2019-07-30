@@ -38,7 +38,7 @@ public class HotelsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         progressDialog = new ProgressDialog(this);
-        initRecycler();
+        initHotelsRecycler();
 
         HotelViewModel viewModel = ViewModelProviders.of(this).get(HotelViewModel.class);
         viewModel.getDetails();
@@ -70,7 +70,7 @@ public class HotelsListActivity extends AppCompatActivity {
     }
 
 
-    private void initRecycler() {
+    private void initHotelsRecycler() {
         hotelItemsRecyclerView.setHasFixedSize(true);
         hotelItemsRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
