@@ -20,7 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ListItemsActivity extends AppCompatActivity {
+public class HotelsListActivity extends AppCompatActivity {
 
 
     @BindView(R.id.hotel_Items_recycler_view)
@@ -40,7 +40,7 @@ public class ListItemsActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         initRecycler();
 
-        ListItemsViewModel viewModel = ViewModelProviders.of(this).get(ListItemsViewModel.class);
+        HotelViewModel viewModel = ViewModelProviders.of(this).get(HotelViewModel.class);
         viewModel.getDetails();
         viewModel.result.observe(this, detailsModel -> {
             String name = detailsModel.getHotel().get(0).getHotelId().toString();
@@ -65,7 +65,7 @@ public class ListItemsActivity extends AppCompatActivity {
         for (int i = 0; i < hotel.size(); i++) {
             list.add(hotel.get(i));
         }
-        ItemsAdapter adapter = new ItemsAdapter(list, getApplication());
+        HotelAdapter adapter = new HotelAdapter(list, getApplication());
         hotelItemsRecyclerView.setAdapter(adapter);
     }
 

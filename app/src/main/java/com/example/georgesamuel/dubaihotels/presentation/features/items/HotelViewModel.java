@@ -14,7 +14,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
-public class ListItemsViewModel extends ViewModel {
+public class HotelViewModel extends ViewModel {
 
 
     MutableLiveData<HotelsDetailsModel> result;
@@ -22,7 +22,7 @@ public class ListItemsViewModel extends ViewModel {
     private HotelsItemsUseCase useCase;
     private CompositeDisposable compositeDisposable;
 
-    public ListItemsViewModel() {
+    public HotelViewModel() {
         result=new MutableLiveData<>();
         retrieving =new MutableLiveData<>();
         useCase=new HotelsItemsUseCase();

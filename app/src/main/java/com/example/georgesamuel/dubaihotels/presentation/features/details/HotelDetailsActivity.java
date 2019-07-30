@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DetailsActivity extends AppCompatActivity implements View.OnClickListener {
+public class HotelDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.hotel_name_details_text_view)
     TextView hotelNameTextView;

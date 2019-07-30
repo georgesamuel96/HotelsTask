@@ -2,7 +2,6 @@ package com.example.georgesamuel.dubaihotels.presentation.features.items;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.entities.Hotel;
-import com.example.georgesamuel.dubaihotels.presentation.features.details.DetailsActivity;
+import com.example.georgesamuel.dubaihotels.presentation.features.details.HotelDetailsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -22,13 +21,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsViewHolder> {
+public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ItemsViewHolder> {
 
 
     private Context context;
     private List<Hotel> list;
 
-    public ItemsAdapter(List<Hotel> list, Context context) {
+    public HotelAdapter(List<Hotel> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -82,7 +81,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsViewHol
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, DetailsActivity.class);
+                Intent intent = new Intent(context, HotelDetailsActivity.class);
                 intent.putExtra("Details", hotel);
                 context.startActivity(intent);            }
         });

@@ -23,8 +23,8 @@
         <activity android:name=".presentation.features.map.MapActivity">
 
         </activity>
-        <activity android:name=".presentation.features.details.DetailsActivity" />
-        <activity android:name=".presentation.features.items.ListItemsActivity">
+        <activity android:name=".presentation.features.details.HotelDetailsActivity" />
+        <activity android:name=".presentation.features.items.HotelsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
