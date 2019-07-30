@@ -1,10 +1,10 @@
 package com.example.georgesamuel.dubaihotels.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,9 +17,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.adapter.HotelAdapter;
 import com.example.georgesamuel.dubaihotels.model.Hotel;
-import com.example.georgesamuel.dubaihotels.model.HotelsResponse;
-import com.example.georgesamuel.dubaihotels.util.CheckNetwork;
-import com.example.georgesamuel.dubaihotels.util.Constants;
 import com.example.georgesamuel.dubaihotels.viewModel.HotelViewModel;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -44,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private HotelViewModel hotelViewModel;
     private HotelAdapter adapter;
     private List<Hotel> hotelList = new ArrayList<>();
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,47 +53,50 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
-        hotelViewModel = ViewModelProviders.of(MainActivity.this).get(HotelViewModel.class);
-        adapter = new HotelAdapter(MainActivity.this, hotelList);
-
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(getString(R.string.hotels));
-        toolbar.setNavigationOnClickListener(view -> finish());
-
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(staggeredGridLayoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
-       getHotels();
+        initToolbar();
+        initHotelViewModel();
+        initHotelRecyclerView();
         refreshList.setOnRefreshListener(() -> {
-
-            if(!CheckNetwork.hasNetwork(getApplicationContext())){
-                loading.setVisibility(View.GONE);
-                Snackbar.make(mainContainer, "No Internet Connection", Snackbar.LENGTH_LONG).show();
-            }
-            else {
-                getHotels();
-            }
+            loading.setVisibility(View.VISIBLE);
+            updateList();
             refreshList.setRefreshing(false);
         });
     }
 
-    private void getHotels(){
-        hotelList.clear();
-        adapter.notifyDataSetChanged();
-        hotelViewModel.getHotels().observe(this, (HotelsResponse hotels) -> {
-            loading.setVisibility(View.GONE);
-            if (hotels.getMessage().equals(Constants.SUCCESS_MESSAGE)) {
-                hotelList.clear();
-                adapter.notifyDataSetChanged();
-                hotelList.addAll(hotels.getHotel());
-                adapter.notifyDataSetChanged();
-            } else {
-                Snackbar.make(mainContainer, hotels.getMessage(), Snackbar.LENGTH_LONG)
-                        .setAction(getString(R.string.ok), view -> {
-                        }).show();
-            }
+    private void updateList() {
+        hotelViewModel.updateHotels().observe(this, this::setHotels);
+    }
 
+    private void initHotelRecyclerView() {
+        adapter = new HotelAdapter(MainActivity.this, hotelList);
+        StaggeredGridLayoutManager staggeredGridLayoutManager =
+                new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void initHotelViewModel() {
+        hotelViewModel = ViewModelProviders.of(MainActivity.this).get(HotelViewModel.class);
+        hotelViewModel.getHotels().observe(this, this::setHotels);
+        hotelViewModel.showError().observe(MainActivity.this, s -> {
+            if(s != null) {
+                Snackbar.make(mainContainer, s, Snackbar.LENGTH_LONG).show();
+                loading.setVisibility(View.GONE);
+            }
         });
+    }
+
+    private void initToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getString(R.string.hotels));
+        toolbar.setNavigationOnClickListener(view -> finish());
+    }
+
+    private void setHotels(List<Hotel> hotels) {
+        loading.setVisibility(View.GONE);
+        hotelList.clear();
+        hotelList.addAll(hotels);
+        adapter.notifyDataSetChanged();
     }
 }

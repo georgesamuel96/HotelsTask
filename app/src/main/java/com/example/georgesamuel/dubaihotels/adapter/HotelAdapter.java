@@ -15,10 +15,8 @@ import com.bumptech.glide.Glide;
 import com.example.georgesamuel.dubaihotels.activities.DetailActivity;
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.model.Hotel;
-import com.example.georgesamuel.dubaihotels.util.Constants;
 import com.google.android.material.card.MaterialCardView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -28,6 +26,13 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
 
     private Context context;
     private List<Hotel> hotelsList;
+    public static final String EXTRA_HOTEL_NAME = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_NAME";
+    public static final String EXTRA_HOTEL_IMAGE_URL = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_IMAGE_URL";
+    public static final String EXTRA_HOTEL_ADDRESS = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_ADDRESS";
+    public static final String EXTRA_HOTEL_HIGH= "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_HIGH";
+    public static final String EXTRA_HOTEL_LOW = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_LOW";
+    public static final String EXTRA_HOTEL_LONGITUDE = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_LONGITUDE";
+    public static final String EXTRA_HOTEL_LATITUDE = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_LATITUDE";
 
     public HotelAdapter(Context context, List<Hotel> list){
         this.context = context;
@@ -48,13 +53,13 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         holder.hotelName.setText(hotelsList.get(position).getSummary().getHotelName());
         holder.cardView.setOnClickListener(view -> {
             Intent intent = new Intent(context, DetailActivity.class);
-            intent.putExtra(Constants.EXTRA_HOTEL_IMAGE_URL, hotelsList.get(position).getImage().get(0).getUrl());
-            intent.putExtra(Constants.EXTRA_HOTEL_NAME, hotelsList.get(position).getSummary().getHotelName());
-            intent.putExtra(Constants.EXTRA_HOTEL_ADDRESS, hotelsList.get(position).getLocation().getAddress());
-            intent.putExtra(Constants.EXTRA_HOTEL_HIGH, hotelsList.get(position).getSummary().getHighRate());
-            intent.putExtra(Constants.EXTRA_HOTEL_LOW, hotelsList.get(position).getSummary().getLowRate());
-            intent.putExtra(Constants.EXTRA_HOTEL_LONGITUDE, hotelsList.get(position).getLocation().getLongitude());
-            intent.putExtra(Constants.EXTRA_HOTEL_LATITUDE, hotelsList.get(position).getLocation().getLatitude());
+            intent.putExtra(EXTRA_HOTEL_IMAGE_URL, hotelsList.get(position).getImage().get(0).getUrl());
+            intent.putExtra(EXTRA_HOTEL_NAME, hotelsList.get(position).getSummary().getHotelName());
+            intent.putExtra(EXTRA_HOTEL_ADDRESS, hotelsList.get(position).getLocation().getAddress());
+            intent.putExtra(EXTRA_HOTEL_HIGH, hotelsList.get(position).getSummary().getHighRate());
+            intent.putExtra(EXTRA_HOTEL_LOW, hotelsList.get(position).getSummary().getLowRate());
+            intent.putExtra(EXTRA_HOTEL_LONGITUDE, hotelsList.get(position).getLocation().getLongitude());
+            intent.putExtra(EXTRA_HOTEL_LATITUDE, hotelsList.get(position).getLocation().getLatitude());
             context.startActivity(intent);
         });
     }

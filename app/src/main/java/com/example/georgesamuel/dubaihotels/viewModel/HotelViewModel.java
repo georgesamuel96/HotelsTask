@@ -1,56 +1,43 @@
 package com.example.georgesamuel.dubaihotels.viewModel;
 
 import android.app.Application;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
-import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.model.Hotel;
-import com.example.georgesamuel.dubaihotels.model.HotelsResponse;
-import com.example.georgesamuel.dubaihotels.remote.ClientAPI;
-import com.example.georgesamuel.dubaihotels.remote.RetrofitClient;
-import com.example.georgesamuel.dubaihotels.util.Constants;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.georgesamuel.dubaihotels.repositories.HotelsRepository;
 
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class HotelViewModel extends AndroidViewModel {
 
-    private MutableLiveData<HotelsResponse> hotelsList = new MutableLiveData<>();
-    private ClientAPI clientAPI;
-    private static final String TAG = HotelViewModel.class.getSimpleName();
+    private HotelsRepository hotelsRepository;
+    private LiveData<List<Hotel>> hotelsList;
+    private LiveData<String> errorMessage;
 
     public HotelViewModel(@NonNull Application application) {
         super(application);
-        clientAPI = RetrofitClient.getInstance(application.getApplicationContext());
+        hotelsRepository = new HotelsRepository(application.getApplicationContext());
+        hotelsList = hotelsRepository.getHotels();
+        errorMessage = hotelsRepository.showError();
     }
 
-    public LiveData<HotelsResponse> getHotels(){
-        clientAPI.getHotels().enqueue(new Callback<HotelsResponse>() {
-            @Override
-            public void onResponse(Call<HotelsResponse> call, Response<HotelsResponse> response) {
-                HotelsResponse hotelsResponse = response.body();
-                if(hotelsResponse != null) {
-                    hotelsResponse.setMessage(Constants.SUCCESS_MESSAGE);
-                    hotelsList.postValue(hotelsResponse);
-                }
-            }
-            @Override
-            public void onFailure(Call<HotelsResponse> call, Throwable t) {
-                HotelsResponse response = new HotelsResponse();
-                response.setMessage(t.getMessage());
-                hotelsList.postValue(response);
-            }
-        });
-
+    public LiveData<List<Hotel>> getHotels(){
+        return hotelsList;
+    }
+    /*
+        Using this method when error occurred while getting data from server
+     */
+    public LiveData<String> showError(){
+        return errorMessage;
+    }
+    /*
+        Using this method when user want to refresh hotel list
+     */
+    public LiveData<List<Hotel>> updateHotels(){
+        hotelsList = hotelsRepository.getHotels();
         return hotelsList;
     }
 }

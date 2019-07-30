@@ -3,10 +3,8 @@ package com.example.georgesamuel.dubaihotels.remote;
 import android.content.Context;
 
 import com.example.georgesamuel.dubaihotels.util.CheckNetwork;
-import com.example.georgesamuel.dubaihotels.util.Constants;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
@@ -19,14 +17,14 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.georgesamuel.dubaihotels.util.Constants.HEADER_CACHE_CONTROL;
-import static com.example.georgesamuel.dubaihotels.util.Constants.HEADER_PRAGMA;
-
 public class RetrofitClient {
 
     private static final String BASE_URL = "https://webkeyztest.getsandbox.com";
     private static ClientAPI clientAPI = null;
     private static final long cacheSize = 5 * 1024 * 1024;
+    public static final String CACHE_FILE_NAME = "someIdentifier";
+    public static final String HEADER_PRAGMA = "Pragma";
+    public static final String HEADER_CACHE_CONTROL = "Cache-Control";
 
     private RetrofitClient(){
 
@@ -38,7 +36,7 @@ public class RetrofitClient {
             loggingInterceptor.level(HttpLoggingInterceptor.Level.BODY);
 
             OkHttpClient client = new OkHttpClient.Builder()
-                    .cache(new Cache(new File(context.getCacheDir(), Constants.CACHE_FILE_NAME), cacheSize))
+                    .cache(new Cache(new File(context.getCacheDir(), CACHE_FILE_NAME), cacheSize))
                     .addInterceptor(loggingInterceptor)
                     .addNetworkInterceptor(networkInterceptor())
                     .addInterceptor(offlineInterceptor(context))
@@ -57,13 +55,10 @@ public class RetrofitClient {
 
     private static Interceptor networkInterceptor(){
         return chain -> {
-
             Response response = chain.proceed(chain.request());
-
             CacheControl cacheControl = new CacheControl.Builder()
                     .maxAge(5, TimeUnit.SECONDS)
                     .build();
-
             return response.newBuilder()
                     .removeHeader(HEADER_PRAGMA)
                     .removeHeader(HEADER_CACHE_CONTROL)
@@ -75,19 +70,16 @@ public class RetrofitClient {
     private static Interceptor offlineInterceptor(Context context) {
         return chain -> {
             Request request = chain.request();
-
             if (!CheckNetwork.hasNetwork(context)) {
                 CacheControl cacheControl = new CacheControl.Builder()
                         .maxStale(7, TimeUnit.DAYS)
                         .build();
-
                 request = request.newBuilder()
                         .removeHeader(HEADER_PRAGMA)
                         .removeHeader(HEADER_CACHE_CONTROL)
                         .cacheControl(cacheControl)
                         .build();
             }
-
             return chain.proceed(request);
         };
     }

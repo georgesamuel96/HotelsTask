@@ -4,10 +4,8 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -16,7 +14,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.util.Constants;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -27,6 +24,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_ADDRESS;
+import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_HIGH;
+import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_IMAGE_URL;
+import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_LATITUDE;
+import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_LONGITUDE;
+import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_LOW;
+import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_NAME;
 
 public class DetailActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -69,27 +74,26 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         Glide.with(DetailActivity.this).load(hotelImageUrl).into(hotelImage);
         hotelNameTV.setText(hotelName);
         hotelAddressTV.setText(hotelAddress);
-        highRate.setText("High rate: " + hotelHighRate);
-        lowRate.setText("Low rate: " + hotelLowRate);
+        highRate.setText(getString(R.string.high_rate) + hotelHighRate);
+        lowRate.setText(getString(R.string.row_rate) + hotelLowRate);
     }
 
     private void getAttributes() {
-        hotelImageUrl = getIntent().getStringExtra(Constants.EXTRA_HOTEL_IMAGE_URL);
-        hotelName = getIntent().getStringExtra(Constants.EXTRA_HOTEL_NAME);
-        hotelAddress = getIntent().getStringExtra(Constants.EXTRA_HOTEL_ADDRESS);
-        hotelHighRate = getIntent().getDoubleExtra(Constants.EXTRA_HOTEL_HIGH, 0.0);
-        hotelLowRate = getIntent().getDoubleExtra(Constants.EXTRA_HOTEL_LOW, 0.0);
-        hotelLongitude = getIntent().getDoubleExtra(Constants.EXTRA_HOTEL_LONGITUDE, 0.0);
-        hotelLatitude = getIntent().getDoubleExtra(Constants.EXTRA_HOTEL_LATITUDE, 0.0);
+        hotelImageUrl = getIntent().getStringExtra(EXTRA_HOTEL_IMAGE_URL);
+        hotelName = getIntent().getStringExtra(EXTRA_HOTEL_NAME);
+        hotelAddress = getIntent().getStringExtra(EXTRA_HOTEL_ADDRESS);
+        hotelHighRate = getIntent().getDoubleExtra(EXTRA_HOTEL_HIGH, 0.0);
+        hotelLowRate = getIntent().getDoubleExtra(EXTRA_HOTEL_LOW, 0.0);
+        hotelLongitude = getIntent().getDoubleExtra(EXTRA_HOTEL_LONGITUDE, 0.0);
+        hotelLatitude = getIntent().getDoubleExtra(EXTRA_HOTEL_LATITUDE, 0.0);
     }
 
     private void init(Bundle savedInstanceState) {
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(getString(R.string.details));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setNavigationOnClickListener(view -> finish());
+        initToolbar();
+        initMapView(savedInstanceState);
+    }
 
+    private void initMapView(Bundle savedInstanceState) {
         Bundle bundle = null;
         if (savedInstanceState != null) {
             bundle = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY);
@@ -97,6 +101,14 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(bundle);
         mapView.getMapAsync(this);
+    }
+
+    private void initToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getString(R.string.details));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(view -> finish());
     }
 
 
@@ -155,7 +167,7 @@ public class DetailActivity extends AppCompatActivity implements OnMapReadyCallb
     }
 
     @OnClick(R.id.hotelImage)
-    public void onViewClicked() {
+    public void onHotelImageClicked() {
         AlertDialog.Builder alert = new AlertDialog.Builder(DetailActivity.this);
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.image_fullscreen, null);
