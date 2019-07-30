@@ -14,7 +14,6 @@ import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.entities.Hotel;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -22,14 +21,13 @@ import butterknife.ButterKnife;
 
 public class HotelsListActivity extends AppCompatActivity {
 
-
     @BindView(R.id.hotel_Items_recycler_view)
     RecyclerView hotelItemsRecyclerView;
 
     @BindView(R.id.parent_constraint_layout)
     ConstraintLayout parentConstraintLayout;
 
-    private List<Hotel> list;
+    private HotelViewModel viewModel;
     private ProgressDialog progressDialog;
 
     @Override
@@ -38,33 +36,14 @@ public class HotelsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         progressDialog = new ProgressDialog(this);
+        viewModel = ViewModelProviders.of(this).get(HotelViewModel.class);
         initHotelsRecycler();
-
-        HotelViewModel viewModel = ViewModelProviders.of(this).get(HotelViewModel.class);
-        viewModel.hotelsDetailsLiveData.observe(this, detailsModel -> {
-            String name = detailsModel.getHotel().get(0).getHotelId().toString();
-            Log.e("name", name);
-            fillList(detailsModel.getHotel());
-        });
-        viewModel.isLoadingLiveData.observe(this, isRetrieve -> {
-            if (isRetrieve) {
-                progressDialog.show();
-            } else {
-                progressDialog.dismiss();
-                Snackbar.make(parentConstraintLayout, R.string.error, Snackbar.LENGTH_SHORT)
-                        .show();
-            }
-        });
-
-
+        observeGetHotels();
+        observeLoadingIndicator();
     }
 
-    private void fillList(List<Hotel> hotel) {
-        list = new ArrayList<>();
-        for (int i = 0; i < hotel.size(); i++) {
-            list.add(hotel.get(i));
-        }
-        HotelAdapter adapter = new HotelAdapter(list, getApplication());
+    private void setUpHotelAdapter(List<Hotel> hotelsList) {
+        HotelAdapter adapter = new HotelAdapter(hotelsList, HotelsListActivity.this);
         hotelItemsRecyclerView.setAdapter(adapter);
     }
 
@@ -75,5 +54,24 @@ public class HotelsListActivity extends AppCompatActivity {
 
     }
 
+    private void observeGetHotels() {
+        viewModel.hotelsDetailsLiveData.observe(this, detailsModel -> {
+            String name = detailsModel.getHotel().get(0).getHotelId().toString();
+            Log.e("name", name);
+            setUpHotelAdapter(detailsModel.getHotel());
+        });
+    }
+
+    private void observeLoadingIndicator() {
+        viewModel.isLoadingLiveData.observe(this, isRetrieve -> {
+            if (isRetrieve) {
+                progressDialog.show();
+            } else {
+                progressDialog.dismiss();
+                Snackbar.make(parentConstraintLayout, R.string.error, Snackbar.LENGTH_SHORT)
+                        .show();
+            }
+        });
+    }
 
 }
