@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.entities.Hotel;
@@ -56,28 +55,25 @@ public class HotelsListActivity extends AppCompatActivity {
     }
 
     private void observeGetHotels() {
-        viewModel.hotelsDetailsLiveData.observe(this, detailsModel -> {
-            String name = detailsModel.getHotel().get(0).getHotelId().toString();
-            Log.e("name", name);
-            setUpHotelAdapter(detailsModel.getHotel());
+        viewModel.hotelsDetailsLiveData.observe(this, hotelsDetails -> {
+            setUpHotelAdapter(hotelsDetails.getHotel());
         });
     }
 
     private void observeLoadingIndicator() {
         viewModel.isLoadingLiveData.observe(this, isRetrieve -> {
-            if (isRetrieve) {
-                progressDialog.show();
-            } else {
+            if (isRetrieve) progressDialog.show();
+            else {
                 progressDialog.dismiss();
-                Snackbar.make(parentConstraintLayout, R.string.error, Snackbar.LENGTH_SHORT)
-                        .show();
             }
         });
     }
-    private void observeHasError(){
+
+    private void observeHasError() {
         viewModel.hasErrorLiveData.observe(this, hasError -> {
             if (hasError) {
-                Snackbar.make(parentConstraintLayout, R.string.error, Snackbar.LENGTH_SHORT).show();            }
+                Snackbar.make(parentConstraintLayout, R.string.error, Snackbar.LENGTH_SHORT).show();
+            }
         });
     }
 
