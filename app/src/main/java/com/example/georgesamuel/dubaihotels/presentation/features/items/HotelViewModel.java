@@ -26,6 +26,7 @@ public class HotelViewModel extends ViewModel {
         isLoadingLiveData =new MutableLiveData<>();
         hotelsUseCase =new HotelsUseCase();
         compositeDisposable=new CompositeDisposable();
+        getDetails();
     }
 
         void getDetails(){

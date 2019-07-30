@@ -41,7 +41,6 @@ public class HotelsListActivity extends AppCompatActivity {
         initHotelsRecycler();
 
         HotelViewModel viewModel = ViewModelProviders.of(this).get(HotelViewModel.class);
-        viewModel.getDetails();
         viewModel.hotelsDetailsLiveData.observe(this, detailsModel -> {
             String name = detailsModel.getHotel().get(0).getHotelId().toString();
             Log.e("name", name);
