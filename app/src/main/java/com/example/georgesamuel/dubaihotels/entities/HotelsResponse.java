@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 
-public class HotelsDetailsModel implements Serializable {
+public class HotelsResponse implements Serializable {
 
     @SerializedName("hotel")
     @Expose

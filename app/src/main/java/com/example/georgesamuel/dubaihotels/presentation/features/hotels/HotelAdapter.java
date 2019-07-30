@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.presentation.features.items;
+package com.example.georgesamuel.dubaihotels.presentation.features.hotels;
 
 import android.content.Context;
 import android.content.Intent;

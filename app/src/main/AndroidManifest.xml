@@ -24,7 +24,7 @@
 
         </activity>
         <activity android:name=".presentation.features.details.HotelDetailsActivity" />
-        <activity android:name=".presentation.features.items.HotelsListActivity">
+        <activity android:name=".presentation.features.hotels.HotelsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.presentation.features.items;
+package com.example.georgesamuel.dubaihotels.presentation.features.hotels;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -40,6 +40,7 @@ public class HotelsListActivity extends AppCompatActivity {
         initHotelsRecycler();
         observeGetHotels();
         observeLoadingIndicator();
+        observeHasError();
     }
 
     private void setUpHotelAdapter(List<Hotel> hotelsList) {
@@ -71,6 +72,12 @@ public class HotelsListActivity extends AppCompatActivity {
                 Snackbar.make(parentConstraintLayout, R.string.error, Snackbar.LENGTH_SHORT)
                         .show();
             }
+        });
+    }
+    private void observeHasError(){
+        viewModel.hasErrorLiveData.observe(this, hasError -> {
+            if (hasError) {
+                Snackbar.make(parentConstraintLayout, R.string.error, Snackbar.LENGTH_SHORT).show();            }
         });
     }
 

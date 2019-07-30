@@ -1,9 +1,9 @@
-package com.example.georgesamuel.dubaihotels.presentation.features.items;
+package com.example.georgesamuel.dubaihotels.presentation.features.hotels;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.georgesamuel.dubaihotels.entities.HotelsDetailsModel;
+import com.example.georgesamuel.dubaihotels.entities.HotelsResponse;
 import com.example.georgesamuel.dubaihotels.usecases.HotelsUseCase;
 
 
@@ -16,40 +16,41 @@ import io.reactivex.schedulers.Schedulers;
 
 public class HotelViewModel extends ViewModel {
 
-    MutableLiveData<HotelsDetailsModel> hotelsDetailsLiveData;
+    MutableLiveData<HotelsResponse> hotelsDetailsLiveData;
     MutableLiveData<Boolean> isLoadingLiveData;
+    MutableLiveData<Boolean> hasErrorLiveData;
     private HotelsUseCase hotelsUseCase;
     private CompositeDisposable compositeDisposable;
 
     public HotelViewModel() {
         hotelsDetailsLiveData =new MutableLiveData<>();
         isLoadingLiveData =new MutableLiveData<>();
+        hasErrorLiveData =new MutableLiveData<>();
+        hasErrorLiveData.setValue(false);
         hotelsUseCase =new HotelsUseCase();
         compositeDisposable=new CompositeDisposable();
         getDetails();
     }
 
-        void getDetails(){
-
-        isLoadingLiveData.setValue(true);
-       Observable<HotelsDetailsModel> call= hotelsUseCase.getHotelsDetails();
+      private void getDetails(){
+       isLoadingLiveData.setValue(true);
+       Observable<HotelsResponse> call= hotelsUseCase.getHotelsDetails();
        Disposable disposable= call.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableObserver <HotelsDetailsModel>() {
+                .subscribeWith(new DisposableObserver <HotelsResponse>() {
                     @Override
-                    public void onNext(HotelsDetailsModel hotelsDetailsList) {
+                    public void onNext(HotelsResponse hotelsDetailsList) {
                        hotelsDetailsLiveData.postValue(hotelsDetailsList);
-                       isLoadingLiveData.postValue(false);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        isLoadingLiveData.postValue(false);
+                        hasErrorLiveData.setValue(true);
                     }
 
                     @Override
                     public void onComplete() {
-
+                        isLoadingLiveData.postValue(false);
                     }
                 });
        compositeDisposable.add(disposable);
