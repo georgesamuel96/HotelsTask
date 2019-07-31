@@ -15,24 +15,11 @@ public class Summary {
         return highRate;
     }
 
-    public void setHighRate(double highRate) {
-        this.highRate = highRate;
-    }
-
     public String getHotelName() {
         return hotelName;
-    }
-
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
     }
 
     public double getLowRate() {
         return lowRate;
     }
-
-    public void setLowRate(double lowRate) {
-        this.lowRate = lowRate;
-    }
-
 }

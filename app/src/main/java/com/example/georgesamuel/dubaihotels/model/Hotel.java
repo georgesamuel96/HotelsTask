@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Hotel {
 
-    private String message;
     @SerializedName("hotelId")
     private int hotelId;
     @SerializedName("image")
@@ -16,43 +15,15 @@ public class Hotel {
     @SerializedName("summary")
     private Summary summary;
 
-    public int getHotelId() {
-        return hotelId;
-    }
-
-    public void setHotelId(int hotelId) {
-        this.hotelId = hotelId;
-    }
-
     public List<Image> getImage() {
         return image;
-    }
-
-    public void setImage(List<Image> image) {
-        this.image = image;
     }
 
     public Location getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
     public Summary getSummary() {
         return summary;
-    }
-
-    public void setSummary(Summary summary) {
-        this.summary = summary;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }

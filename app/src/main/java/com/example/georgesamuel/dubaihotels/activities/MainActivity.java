@@ -1,7 +1,6 @@
 package com.example.georgesamuel.dubaihotels.activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -40,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
     SwipeRefreshLayout refreshList;
     private HotelViewModel hotelViewModel;
     private HotelAdapter adapter;
-    private List<Hotel> hotelList = new ArrayList<>();
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private final List<Hotel> hotelList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

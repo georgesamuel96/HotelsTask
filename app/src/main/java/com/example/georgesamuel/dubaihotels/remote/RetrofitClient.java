@@ -22,9 +22,9 @@ public class RetrofitClient {
     private static final String BASE_URL = "https://webkeyztest.getsandbox.com";
     private static ClientAPI clientAPI = null;
     private static final long cacheSize = 5 * 1024 * 1024;
-    public static final String CACHE_FILE_NAME = "someIdentifier";
-    public static final String HEADER_PRAGMA = "Pragma";
-    public static final String HEADER_CACHE_CONTROL = "Cache-Control";
+    private static final String CACHE_FILE_NAME = "someIdentifier";
+    private static final String HEADER_PRAGMA = "Pragma";
+    private static final String HEADER_CACHE_CONTROL = "Cache-Control";
 
     private RetrofitClient(){
 

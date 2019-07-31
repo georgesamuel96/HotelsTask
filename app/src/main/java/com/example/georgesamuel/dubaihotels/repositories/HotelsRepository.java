@@ -2,7 +2,6 @@ package com.example.georgesamuel.dubaihotels.repositories;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -22,10 +21,10 @@ import retrofit2.Response;
 
 public class HotelsRepository {
 
-    private MutableLiveData<List<Hotel>> listHotels;
-    private MutableLiveData<String> errorMessage;
-    private ClientAPI clientAPI;
-    private Context context;
+    private final MutableLiveData<List<Hotel>> listHotels;
+    private final MutableLiveData<String> errorMessage;
+    private final ClientAPI clientAPI;
+    private final Context context;
     private String error;
     private static final String TAG = HotelsRepository.class.getSimpleName();
 
@@ -41,7 +40,7 @@ public class HotelsRepository {
         clientAPI.getHotels().enqueue(new Callback<HotelsResponse>() {
             @Override
             public void onResponse(Call<HotelsResponse> call, Response<HotelsResponse> response) {
-                if(response.isSuccessful()){
+                if(response.isSuccessful() && response != null){
                     Log.d(TAG, "getHotels");
                     HotelsResponse hotelsResponse = response.body();
                     listHotels.setValue(hotelsResponse.getHotel());

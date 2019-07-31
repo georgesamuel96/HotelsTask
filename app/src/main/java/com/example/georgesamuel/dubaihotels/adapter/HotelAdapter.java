@@ -24,8 +24,8 @@ import butterknife.ButterKnife;
 
 public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHolder>{
 
-    private Context context;
-    private List<Hotel> hotelsList;
+    final private Context context;
+    final private List<Hotel> hotelsList;
     public static final String EXTRA_HOTEL_NAME = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_NAME";
     public static final String EXTRA_HOTEL_IMAGE_URL = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_IMAGE_URL";
     public static final String EXTRA_HOTEL_ADDRESS = "com.example.georgesamuel.dubaihotels.util.EXTRA_HOTEL_ADDRESS";

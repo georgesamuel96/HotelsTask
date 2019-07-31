@@ -13,9 +13,9 @@ import java.util.List;
 
 public class HotelViewModel extends AndroidViewModel {
 
-    private HotelsRepository hotelsRepository;
+    private final HotelsRepository hotelsRepository;
     private LiveData<List<Hotel>> hotelsList;
-    private LiveData<String> errorMessage;
+    private final LiveData<String> errorMessage;
 
     public HotelViewModel(@NonNull Application application) {
         super(application);
