@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.georgesamuel.dubaihotels.activities.DetailActivity;
+import com.example.georgesamuel.dubaihotels.activities.hotels.DetailActivity;
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.model.Hotel;
 import com.google.android.material.card.MaterialCardView;
