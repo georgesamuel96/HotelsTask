@@ -16,7 +16,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class HotelViewModel extends ViewModel {
 
-    MutableLiveData<HotelsResponse> hotelsDetailsLiveData;
+   public MutableLiveData<HotelsResponse> hotelsDetailsLiveData;
     MutableLiveData<Boolean> isLoadingLiveData;
     MutableLiveData<Boolean> hasErrorLiveData;
     private HotelsUseCase hotelsUseCase;
