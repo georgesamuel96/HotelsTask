@@ -17,19 +17,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-        <activity android:name=".presentation.features.map.MapActivity">
-
-        </activity>
-        <activity android:name=".presentation.features.details.HotelDetailsActivity" />
-        <activity android:name=".presentation.features.hotels.HotelsListActivity">
+        <activity android:name=".coordinate.CustomBehaviourCoordinateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".constraint.ConstraintTestActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".presentation.features.map.MapActivity" />
+        <activity android:name=".presentation.features.details.HotelDetailsActivity" />
+        <activity android:name=".presentation.features.hotels.HotelsListActivity">
+
         </activity>
     </application>
 
