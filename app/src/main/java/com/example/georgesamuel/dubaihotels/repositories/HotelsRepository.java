@@ -7,8 +7,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.model.Hotel;
-import com.example.georgesamuel.dubaihotels.model.HotelsResponse;
+import com.example.georgesamuel.dubaihotels.model.hotel.Hotel;
+import com.example.georgesamuel.dubaihotels.model.hotel.HotelsResponse;
 import com.example.georgesamuel.dubaihotels.remote.ClientAPI;
 import com.example.georgesamuel.dubaihotels.remote.RetrofitClient;
 

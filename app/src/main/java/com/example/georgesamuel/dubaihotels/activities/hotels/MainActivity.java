@@ -15,7 +15,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.adapter.HotelAdapter;
-import com.example.georgesamuel.dubaihotels.model.Hotel;
+import com.example.georgesamuel.dubaihotels.model.hotel.Hotel;
 import com.example.georgesamuel.dubaihotels.viewModel.HotelViewModel;
 import com.google.android.material.snackbar.Snackbar;
 

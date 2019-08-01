@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.georgesamuel.dubaihotels.model.Hotel;
+import com.example.georgesamuel.dubaihotels.model.hotel.Hotel;
 import com.example.georgesamuel.dubaihotels.repositories.HotelsRepository;
 
 import java.util.List;

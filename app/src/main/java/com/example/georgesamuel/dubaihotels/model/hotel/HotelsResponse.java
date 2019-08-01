@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.model;
+package com.example.georgesamuel.dubaihotels.model.hotel;
 
 import com.google.gson.annotations.SerializedName;
 
