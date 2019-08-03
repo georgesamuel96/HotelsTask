@@ -1,6 +1,5 @@
-package com.example.georgesamuel.dubaihotels.activities.materialComponent;
+package com.example.georgesamuel.dubaihotels.ui.activities.materialComponent;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;

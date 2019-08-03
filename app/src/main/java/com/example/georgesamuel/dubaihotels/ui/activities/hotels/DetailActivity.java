@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.activities.hotels;
+package com.example.georgesamuel.dubaihotels.ui.activities.hotels;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;

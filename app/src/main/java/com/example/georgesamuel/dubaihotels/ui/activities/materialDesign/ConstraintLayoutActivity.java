@@ -1,7 +1,6 @@
-package com.example.georgesamuel.dubaihotels.activities.materialDesign;
+package com.example.georgesamuel.dubaihotels.ui.activities.materialDesign;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.os.Bundle;
 

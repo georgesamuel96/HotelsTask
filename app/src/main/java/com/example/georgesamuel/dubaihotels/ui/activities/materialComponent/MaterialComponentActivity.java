@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.activities.materialComponent;
+package com.example.georgesamuel.dubaihotels.ui.activities.materialComponent;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,7 +40,8 @@ public class MaterialComponentActivity extends AppCompatActivity {
     }
 
     private void initAdapter() {
-        componentsList.add("Material Dialog");
+        componentsList.add(getString(R.string.material_dialog));
+        componentsList.add(getString(R.string.bottom_app_bar));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, componentsList);
         components.setAdapter(adapter);
 
@@ -48,6 +49,9 @@ public class MaterialComponentActivity extends AppCompatActivity {
             switch (position) {
                 case 0:
                     goToActivity(MaterialDialogActivity.class);
+                    break;
+                case 1:
+                    goToActivity(BottomAppBarActivity.class);
                     break;
             }
         });

@@ -28,4 +28,21 @@
     <string name="message">Message</string>
     <string name="confirmation_dialog">Confirmation Dialog</string>
     <string name="cancel">Cancel</string>
+    <string name="material_dialog">Material Dialog</string>
+    <string name="bottom_app_bar">Bottom App Bar</string>
+    <string name="fab_clicked">FAB Clicked</string>
+    <string name="action_favorite">Favorite</string>
+    <string name="action_search">Search</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_mail">Mail</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_archive">Archive</string>
+    <string name="change_fab_position">Change FAB Position</string>
+    <string name="bottom_sheet">Bottom Sheet</string>
+    <string name="email">Email</string>
+    <string name="scale">Scale</string>
+    <string name="slide">Slide</string>
+    <string name="test_article">The definite article is the word the. It limits the meaning of a noun to one particular thing. For example, your friend might ask, “Are you going to the party this weekend?” The definite article tells you that your friend is referring to a specific party that both of you know about.</string>
 </resources>

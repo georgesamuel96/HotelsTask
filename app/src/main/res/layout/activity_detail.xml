@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/content"
-    tools:context=".activities.hotels.DetailActivity">
+    tools:context=".ui.activities.hotels.DetailActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
