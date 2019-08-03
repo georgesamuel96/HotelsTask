@@ -42,6 +42,7 @@ public class MaterialComponentActivity extends AppCompatActivity {
     private void initAdapter() {
         componentsList.add(getString(R.string.material_dialog));
         componentsList.add(getString(R.string.bottom_app_bar));
+        componentsList.add(getString(R.string.chips));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, componentsList);
         components.setAdapter(adapter);
 
@@ -52,6 +53,9 @@ public class MaterialComponentActivity extends AppCompatActivity {
                     break;
                 case 1:
                     goToActivity(BottomAppBarActivity.class);
+                    break;
+                case 2:
+                    goToActivity(ChipsActivity.class);
                     break;
             }
         });

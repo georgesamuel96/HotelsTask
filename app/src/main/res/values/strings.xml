@@ -45,4 +45,16 @@
     <string name="scale">Scale</string>
     <string name="slide">Slide</string>
     <string name="test_article">The definite article is the word the. It limits the meaning of a noun to one particular thing. For example, your friend might ask, “Are you going to the party this weekend?” The definite article tells you that your friend is referring to a specific party that both of you know about.</string>
+    <string name="chips">Chips</string>
+    <string name="hello_chip">Hello Chip</string>
+    <string name="hello_chip_entry">Hello Chip Entry</string>
+    <string name="chip_1">Choose chip</string>
+    <string name="chip_action">Chip Action</string>
+    <string name="default_chip">Default Chip</string>
+    <string name="chips_group">Chips Group</string>
+    <string name="chips_group_single">Choose chip single</string>
+    <string name="show">Show</string>
+    <string name="chips_group_multi">Multi choose chips</string>
+    <string name="dynamic_check">Dynamic Check</string>
+    <string name="chip_clicked">Chip clicked</string>
 </resources>

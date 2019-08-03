@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.materialComponent.BottomAppBarActivity"></activity>
+        <activity android:name=".ui.activities.materialComponent.ChipsActivity"></activity>
+        <activity android:name=".ui.activities.materialComponent.BottomAppBarActivity" />
         <activity android:name=".ui.activities.materialComponent.MaterialDialogActivity" />
         <activity android:name=".ui.activities.materialComponent.MaterialComponentActivity">
             <intent-filter>
