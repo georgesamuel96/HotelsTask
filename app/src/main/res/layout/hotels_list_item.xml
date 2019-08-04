@@ -15,7 +15,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/hotel_picture_image_view"
+        android:id="@+id/image_hotel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
@@ -23,7 +23,7 @@
         />
 
     <TextView
-        android:id="@+id/hotel_name_text_view"
+        android:id="@+id/text_hotel_name"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

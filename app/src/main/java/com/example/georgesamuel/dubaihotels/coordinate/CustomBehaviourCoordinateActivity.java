@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.entities.Hotel;
+import com.example.georgesamuel.dubaihotels.entities.HotelsResponse;
 import com.example.georgesamuel.dubaihotels.presentation.features.hotels.HotelAdapter;
 import com.example.georgesamuel.dubaihotels.presentation.features.hotels.HotelViewModel;
 import com.google.android.material.appbar.AppBarLayout;
@@ -93,11 +94,11 @@ public class CustomBehaviourCoordinateActivity extends AppCompatActivity {
     }
 
     private void observeGetHotels() {
-        viewModel.hotelsDetailsLiveData.observe(this, hotelsDetails -> {
-            setUpHotelAdapter(hotelsDetails.getHotel());
-        });
+        viewModel.hotelsDetailsLiveData.observe(this, this::onChanged);
     }
 
 
-
+    private void onChanged(HotelsResponse hotelsDetails) {
+        setUpHotelAdapter(hotelsDetails.getHotel());
+    }
 }

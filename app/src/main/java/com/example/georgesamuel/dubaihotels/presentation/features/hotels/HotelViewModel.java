@@ -8,23 +8,21 @@ import com.example.georgesamuel.dubaihotels.usecases.HotelsUseCase;
 
 
 import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
-import io.reactivex.schedulers.Schedulers;
 
 public class HotelViewModel extends ViewModel {
 
    public MutableLiveData<HotelsResponse> hotelsDetailsLiveData;
-    MutableLiveData<Boolean> isLoadingLiveData;
+    MutableLiveData<Boolean> isLoading;
     MutableLiveData<Boolean> hasErrorLiveData;
     private HotelsUseCase hotelsUseCase;
     private CompositeDisposable compositeDisposable;
 
     public HotelViewModel() {
         hotelsDetailsLiveData =new MutableLiveData<>();
-        isLoadingLiveData =new MutableLiveData<>();
+        isLoading =new MutableLiveData<>();
         hasErrorLiveData =new MutableLiveData<>();
         hasErrorLiveData.setValue(false);
         hotelsUseCase =new HotelsUseCase();
@@ -33,13 +31,13 @@ public class HotelViewModel extends ViewModel {
     }
 
       private void getDetails(){
-       isLoadingLiveData.setValue(true);
+       isLoading.setValue(true);
        Observable<HotelsResponse> call= hotelsUseCase.getHotelsDetails();
        Disposable disposable= call
                 .subscribeWith(new DisposableObserver <HotelsResponse>() {
                     @Override
                     public void onNext(HotelsResponse hotelsDetailsList) {
-                       hotelsDetailsLiveData.postValue(hotelsDetailsList);
+                       hotelsDetailsLiveData.setValue(hotelsDetailsList);
                     }
 
                     @Override
@@ -49,7 +47,7 @@ public class HotelViewModel extends ViewModel {
 
                     @Override
                     public void onComplete() {
-                        isLoadingLiveData.postValue(false);
+                        isLoading.postValue(false);
                     }
                 });
        compositeDisposable.add(disposable);

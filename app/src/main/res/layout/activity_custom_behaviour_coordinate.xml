@@ -60,7 +60,7 @@
         android:id="@+id/custom_fab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right|end"
+        android:layout_gravity="bottom|end"
         android:layout_margin="10dp"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 

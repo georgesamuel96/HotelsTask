@@ -20,9 +20,8 @@ import butterknife.ButterKnife;
 
 public class HotelsListActivity extends AppCompatActivity {
 
-    @BindView(R.id.hotel_Items_recycler_view)
+    @BindView(R.id.recycler_hotels)
     RecyclerView hotelItemsRecyclerView;
-
     @BindView(R.id.parent_constraint_layout)
     ConstraintLayout parentConstraintLayout;
 
@@ -55,13 +54,11 @@ public class HotelsListActivity extends AppCompatActivity {
     }
 
     private void observeGetHotels() {
-        viewModel.hotelsDetailsLiveData.observe(this, hotelsDetails -> {
-            setUpHotelAdapter(hotelsDetails.getHotel());
-        });
+        viewModel.hotelsDetailsLiveData.observe(this, hotelsDetails -> setUpHotelAdapter(hotelsDetails.getHotel()));
     }
 
     private void observeLoadingIndicator() {
-        viewModel.isLoadingLiveData.observe(this, isRetrieve -> {
+        viewModel.isLoading.observe(this, isRetrieve -> {
             if (isRetrieve) progressDialog.show();
             else {
                 progressDialog.dismiss();

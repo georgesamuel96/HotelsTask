@@ -23,7 +23,7 @@ public class ApiClient {
 
     private static Retrofit retrofit = null;
     private static OkHttpClient okHttpClient;
-    private static int REQUEST_TIMEOUT = 60;
+
 
     public static Retrofit getClient(Context context) {
 
@@ -51,6 +51,7 @@ public class ApiClient {
     }
 
     private static void initOkHttp() {
+        int REQUEST_TIMEOUT = 60;
         int cacheSize = 10 * 1024 * 1024; // 10 MB
         Cache cache = new Cache(HotelsApplication.getAppContext().getCacheDir(), cacheSize);
         OkHttpClient.Builder httpClient = new OkHttpClient().newBuilder()

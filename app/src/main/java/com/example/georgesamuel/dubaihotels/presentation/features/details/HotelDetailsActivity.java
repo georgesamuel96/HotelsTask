@@ -20,38 +20,32 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity.HOTEL_NAME_CONSTANT;
-import static com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity.LATITUDE_CONSTANT;
-import static com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity.LONGITUDE_CONSTANT;
+import static com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity.EXTRA_HOTEL_NAME;
+import static com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity.EXTRA_LATITUDE;
+import static com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity.EXTRA_LONGITUDE;
 
 public class HotelDetailsActivity extends AppCompatActivity  {
 
-    @BindView(R.id.hotel_name_details_text_view)
+    @BindView(R.id.text_hotel_name_details)
     TextView hotelNameTextView;
-
-    @BindView(R.id.actual_price_text_view)
+    @BindView(R.id.text_actual_price)
     TextView actualPriceTextView;
-
-    @BindView(R.id.hotel_address_text_view)
+    @BindView(R.id.text_hotel_address)
     TextView addressTextView;
-
-    @BindView(R.id.normal_price_text_view)
+    @BindView(R.id.text_normal_price)
     TextView normalPriceTextView;
-
-    @BindView(R.id.details_pic_image_view)
+    @BindView(R.id.image_hotel_details)
     ImageView hotelPicImageView;
-
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-
-    @BindView(R.id.back_image_view)
+    @BindView(R.id.image_back)
     ImageView backImageView;
-
-    @BindView(R.id.open_map_button)
+    @BindView(R.id.button_open_map)
     Button openMapButton;
 
     boolean isImageFitToScreen;
     private Hotel hotel;
+    public static final String EXTRA_HOTEL_DETAILS=" com.example.georgesamuel.dubaihotels.details";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +53,13 @@ public class HotelDetailsActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_details);
         ButterKnife.bind(this);
         if (getIntent() != null) {
-             hotel = (Hotel) getIntent().getSerializableExtra("Details");
+             hotel = (Hotel) getIntent().getSerializableExtra(EXTRA_HOTEL_DETAILS);
             setData(hotel);
         }
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
     }
-
 
     private void setData(Hotel data) {
         String imageUrl = data.getImage().get(0).getUrl();
@@ -82,32 +75,31 @@ public class HotelDetailsActivity extends AppCompatActivity  {
 
     }
 
-    @OnClick(R.id.back_image_view)
+    @OnClick(R.id.image_back)
     void setBack(View view) {
         finish();
     }
 
-
-    @OnClick(R.id.details_pic_image_view)
+    @OnClick(R.id.image_hotel_details)
     void zoomImage(View view) {
         if (isImageFitToScreen) {
             isImageFitToScreen = false;
-            hotelPicImageView.setLayoutParams(new LinearLayoutCompat.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT, LinearLayoutCompat.LayoutParams.WRAP_CONTENT));
+            view.setLayoutParams(new LinearLayoutCompat.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT, LinearLayoutCompat.LayoutParams.WRAP_CONTENT));
             hotelPicImageView.setAdjustViewBounds(true);
             hotelPicImageView.setScaleType(ImageView.ScaleType.FIT_XY);
         } else {
             isImageFitToScreen = true;
-            hotelPicImageView.setLayoutParams(new LinearLayoutCompat.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT, LinearLayoutCompat.LayoutParams.MATCH_PARENT));
+            view.setLayoutParams(new LinearLayoutCompat.LayoutParams(LinearLayoutCompat.LayoutParams.MATCH_PARENT, LinearLayoutCompat.LayoutParams.MATCH_PARENT));
         }
     }
 
-    @OnClick(R.id.open_map_button)
+    @OnClick(R.id.button_open_map)
     void openMap(View view) {
         Intent intent=new Intent(this, MapActivity.class);
         if(hotel!=null){
-            intent.putExtra(LONGITUDE_CONSTANT,hotel.getLocation().getLongitude());
-            intent.putExtra(LATITUDE_CONSTANT,hotel.getLocation().getLatitude());
-            intent.putExtra(HOTEL_NAME_CONSTANT,hotel.getSummary().getHotelName());
+            intent.putExtra(EXTRA_LONGITUDE,hotel.getLocation().getLongitude());
+            intent.putExtra(EXTRA_LATITUDE,hotel.getLocation().getLatitude());
+            intent.putExtra(EXTRA_HOTEL_NAME,hotel.getSummary().getHotelName());
         }
         startActivity(intent);
     }

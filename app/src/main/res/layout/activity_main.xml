@@ -7,7 +7,7 @@
     tools:context=".presentation.features.hotels.HotelsListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/hotel_Items_recycler_view"
+        android:id="@+id/recycler_hotels"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
