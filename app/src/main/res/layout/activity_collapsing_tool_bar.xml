@@ -17,7 +17,6 @@
             app:contentScrim="?attr/colorPrimary">
 
             <ImageView
-                android:id="@+id/expandedImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/beach_scene"
@@ -27,7 +26,6 @@
                 />
 
             <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin" >

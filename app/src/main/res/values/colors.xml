@@ -6,4 +6,6 @@
     <color name="white">#FBFCFD</color>
     <color name="softGreen">#52916B</color>
     <color name="black">#000</color>
+    <color name="shimmer_background_color">#b1b1b1</color>
+
 </resources>
