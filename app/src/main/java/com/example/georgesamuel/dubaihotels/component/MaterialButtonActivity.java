@@ -27,7 +27,7 @@ public class MaterialButtonActivity extends AppCompatActivity {
 
     @OnClick(R.id.button_open_collapse)
     public void openCollapseScreen(View view){
-        Intent intent=new Intent(MaterialButtonActivity.this,MaterialComponentActivity.class);
+        Intent intent=new Intent(MaterialButtonActivity.this, MaterialBottomSheetActivity.class);
         startActivity(intent);
     }
 }
