@@ -11,16 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.materialComponent.ChipsActivity"></activity>
-        <activity android:name=".ui.activities.materialComponent.BottomAppBarActivity" />
-        <activity android:name=".ui.activities.materialComponent.MaterialDialogActivity" />
-        <activity android:name=".ui.activities.materialComponent.MaterialComponentActivity">
+        <activity android:name=".ui.activities.animation.AnimationResourcesActivity"></activity>
+        <activity android:name=".ui.activities.animation.AnimationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activities.materialComponent.ChipsActivity" />
+        <activity android:name=".ui.activities.materialComponent.BottomAppBarActivity" />
+        <activity android:name=".ui.activities.materialComponent.MaterialDialogActivity" />
+        <activity android:name=".ui.activities.materialComponent.MaterialComponentActivity"></activity>
         <activity android:name=".ui.activities.materialDesign.CoordinatorLayoutCustomBehaviorActivity" />
         <activity android:name=".ui.activities.materialDesign.CoordinatorLayoutDefaultBehavior" />
         <activity android:name=".ui.activities.materialDesign.ConstraintLayoutActivity" />

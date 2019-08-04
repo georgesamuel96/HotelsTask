@@ -45,7 +45,6 @@ public class MaterialComponentActivity extends AppCompatActivity {
         componentsList.add(getString(R.string.chips));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, componentsList);
         components.setAdapter(adapter);
-
         components.setOnItemClickListener((adapterView, view, position, l) -> {
             switch (position) {
                 case 0:
