@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.animation.ShimmerAnimationActivity"></activity>
+        <activity android:name=".ui.activities.animation.DetailsActivity"></activity>
+        <activity android:name=".ui.activities.animation.SharedElementActivity" />
+        <activity android:name=".ui.activities.animation.ShimmerAnimationActivity" />
         <activity android:name=".ui.activities.animation.AnimationResourcesActivity" />
         <activity android:name=".ui.activities.animation.AnimationActivity">
             <intent-filter>

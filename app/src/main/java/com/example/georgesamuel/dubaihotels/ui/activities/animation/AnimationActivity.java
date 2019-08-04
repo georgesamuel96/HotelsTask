@@ -34,6 +34,7 @@ public class AnimationActivity extends AppCompatActivity {
     private void initAdapter() {
         animationsList.add(getString(R.string.animation_resources));
         animationsList.add(getString(R.string.shimmer_animation));
+        animationsList.add(getString(R.string.shared_element));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, animationsList);
         lvAnimation.setAdapter(adapter);
         lvAnimation.setOnItemClickListener((adapterView, view, position, l) -> {
@@ -43,6 +44,9 @@ public class AnimationActivity extends AppCompatActivity {
                     break;
                 case 1:
                     goToActivity(ShimmerAnimationActivity.class);
+                    break;
+                case 2:
+                    goToActivity(SharedElementActivity.class);
                     break;
             }
         });
