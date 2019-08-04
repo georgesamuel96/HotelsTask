@@ -33,12 +33,16 @@ public class AnimationActivity extends AppCompatActivity {
 
     private void initAdapter() {
         animationsList.add(getString(R.string.animation_resources));
+        animationsList.add(getString(R.string.shimmer_animation));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, animationsList);
         lvAnimation.setAdapter(adapter);
         lvAnimation.setOnItemClickListener((adapterView, view, position, l) -> {
             switch (position) {
                 case 0:
                     goToActivity(AnimationResourcesActivity.class);
+                    break;
+                case 1:
+                    goToActivity(ShimmerAnimationActivity.class);
                     break;
             }
         });

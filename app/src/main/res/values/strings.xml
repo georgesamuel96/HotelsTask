@@ -61,4 +61,5 @@
     <string name="alpha">Alpha</string>
     <string name="rotate">Rotate</string>
     <string name="translate">Translate</string>
+    <string name="shimmer_animation">Shimmer Animation</string>
 </resources>
