@@ -49,4 +49,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     implementation 'io.supercharge:shimmerlayout:2.1.0'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation "com.airbnb.android:lottie:3.0.7"
 }

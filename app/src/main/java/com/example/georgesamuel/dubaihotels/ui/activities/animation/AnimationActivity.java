@@ -36,6 +36,7 @@ public class AnimationActivity extends AppCompatActivity {
         animationsList.add(getString(R.string.shimmer_animation));
         animationsList.add(getString(R.string.shared_element));
         animationsList.add(getString(R.string.rv_animation));
+        animationsList.add(getString(R.string.lottieAnimation));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, animationsList);
         lvAnimation.setAdapter(adapter);
         lvAnimation.setOnItemClickListener((adapterView, view, position, l) -> {
@@ -51,6 +52,9 @@ public class AnimationActivity extends AppCompatActivity {
                     break;
                 case 3:
                     goToActivity(RecyclerViewAnimationActivity.class);
+                    break;
+                case 4:
+                    goToActivity(LottieAnimationActivity.class);
                     break;
             }
         });

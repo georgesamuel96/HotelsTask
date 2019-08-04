@@ -69,4 +69,5 @@
     <string name="animation">Animation</string>
     <string name="recycler_view">Recycler View</string>
     <string name="grid_view">Grid Recycler View</string>
+    <string name="lottieAnimation">Lottie Animation</string>
 </resources>
