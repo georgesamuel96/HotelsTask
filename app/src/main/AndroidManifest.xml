@@ -17,9 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".component.MaterialComponentActivity">
-
-
+        <activity android:name=".component.MaterialButtonActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -27,10 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".coordinate.CustomBehaviourCoordinateActivity"/>
-        <activity android:name=".constraint.ConstraintTestActivity">
+        <activity android:name=".component.MaterialComponentActivity">
 
         </activity>
+        <activity android:name=".coordinate.CustomBehaviourCoordinateActivity" />
+        <activity android:name=".constraint.ConstraintTestActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -38,7 +37,7 @@
 
         <activity android:name=".presentation.features.map.MapActivity" />
         <activity android:name=".presentation.features.details.HotelDetailsActivity" />
-        <activity android:name=".presentation.features.hotels.HotelsListActivity"/>
+        <activity android:name=".presentation.features.hotels.HotelsListActivity" />
     </application>
 
 </manifest>

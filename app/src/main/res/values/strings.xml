@@ -10,4 +10,11 @@
     <string name="singapore">Singapore</string>
     <string name="camera">Camera</string>
     <string name="show_snack_bar">Show Snack Bar</string>
+    <string name="button_open_collapse">Open Collapse Screen</string>
+    <string name="button_un_elevated">Un Elevated</string>
+    <string name="button_label_enabled">Label Enabled</string>
+    <string name="button_label_disabled">Label Disabled</string>
+    <string name="outlined_button_label_enabled">OutLine Button Label Enabled</string>
+    <string name="text_button_label_enabled">Text Button Label Enabled</string>
+    <string name="icon_button_label_enabled">Icon Button Label Enabled</string>
 </resources>
