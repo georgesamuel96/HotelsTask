@@ -63,4 +63,10 @@
     <string name="translate">Translate</string>
     <string name="shimmer_animation">Shimmer Animation</string>
     <string name="shared_element">Shared Element</string>
+    <string name="rv_animation">Recycler View Animation</string>
+    <string name="list">List</string>
+    <string name="grid">Grid</string>
+    <string name="animation">Animation</string>
+    <string name="recycler_view">Recycler View</string>
+    <string name="grid_view">Grid Recycler View</string>
 </resources>
