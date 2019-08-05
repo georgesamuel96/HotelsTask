@@ -33,12 +33,16 @@ public class DesignPatternsActivity extends AppCompatActivity {
 
     private void initAdapter() {
         patternsList.add(getString(R.string.creational_design_pattern));
+        patternsList.add(getString(R.string.behavioral_design_pattern));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, patternsList);
         designLV.setAdapter(adapter);
         designLV.setOnItemClickListener((adapterView, view, position, l) -> {
             switch (position) {
                 case 0:
                     goToActivity(CreationalDPActivity.class);
+                    break;
+                case 1:
+                    goToActivity(BehavioralDPActivity.class);
                     break;
             }
         });

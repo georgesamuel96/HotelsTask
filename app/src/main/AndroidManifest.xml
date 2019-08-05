@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.designPattern.BuilderDPActivity"></activity>
+        <activity android:name=".ui.activities.designPattern.ObserverDPActivity"></activity>
+        <activity android:name=".ui.activities.designPattern.BehavioralDPActivity" />
+        <activity android:name=".ui.activities.designPattern.BuilderDPActivity" />
         <activity android:name=".ui.activities.designPattern.CreationalDPActivity" />
         <activity android:name=".ui.activities.designPattern.DesignPatternsActivity">
             <intent-filter>
@@ -28,7 +30,7 @@
         <activity android:name=".ui.activities.animation.SharedElementActivity" />
         <activity android:name=".ui.activities.animation.ShimmerAnimationActivity" />
         <activity android:name=".ui.activities.animation.AnimationResourcesActivity" />
-        <activity android:name=".ui.activities.animation.AnimationActivity"></activity>
+        <activity android:name=".ui.activities.animation.AnimationActivity" />
         <activity android:name=".ui.activities.materialComponent.ChipsActivity" />
         <activity android:name=".ui.activities.materialComponent.BottomAppBarActivity" />
         <activity android:name=".ui.activities.materialComponent.MaterialDialogActivity" />
