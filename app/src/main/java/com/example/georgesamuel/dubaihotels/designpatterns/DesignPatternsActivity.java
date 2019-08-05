@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.georgesamuel.dubaihotels.R;
+import com.example.georgesamuel.dubaihotels.designpatterns.builder.User;
 import com.example.georgesamuel.dubaihotels.designpatterns.observer.FirstFragment;
 import com.example.georgesamuel.dubaihotels.designpatterns.observer.SecondFragment;
 import com.example.georgesamuel.dubaihotels.designpatterns.observer.ThirdFragment;
@@ -35,7 +36,11 @@ public class DesignPatternsActivity extends AppCompatActivity {
         transaction.commit();
         thirdFragment.registerObserver(secondFragment);
         thirdFragment.registerObserver(firstFragment);
-    }
+        new User.Builder()
+                .setFirstName("Leonardo")
+                .setLastName("da Vinci")
+                .setAge(67)
+                .create();    }
 
     @Override
     protected void onDestroy() {
