@@ -5,9 +5,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.designpatterns.builder.User;
+import com.example.georgesamuel.dubaihotels.designpatterns.factory.Wheel;
+import com.example.georgesamuel.dubaihotels.designpatterns.factory.WheelFactory;
 import com.example.georgesamuel.dubaihotels.designpatterns.observer.FirstFragment;
 import com.example.georgesamuel.dubaihotels.designpatterns.observer.SecondFragment;
 import com.example.georgesamuel.dubaihotels.designpatterns.observer.ThirdFragment;
@@ -37,10 +40,16 @@ public class DesignPatternsActivity extends AppCompatActivity {
         thirdFragment.registerObserver(secondFragment);
         thirdFragment.registerObserver(firstFragment);
         new User.Builder()
-                .setFirstName("Leonardo")
-                .setLastName("da Vinci")
+                .setFirstName("Al Shaymaa")
+                .setLastName("Mohamed")
                 .setAge(67)
-                .create();    }
+                .create();
+        Wheel carWheel = WheelFactory.getWheel("Carwheel", 15, 215);
+        Wheel bikeWheel = WheelFactory.getWheel("Bikewheel", 18, 245);
+
+        Log.e("carWheel","Car wheel specifications:" + carWheel);
+        Log.e("bikeWheel","Car wheel specifications:" + bikeWheel);
+    }
 
     @Override
     protected void onDestroy() {
