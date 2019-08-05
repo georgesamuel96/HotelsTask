@@ -21,6 +21,7 @@
     <string name="default_behavior_">Snackbar with default behavior</string>
     <string name="custom_behavior_">Snackbar with custom behavior</string>
     <string name="welcome_material">Let\'s take a trip in material component</string>
+    <string name="welcome_design_pattern">Let\'s take a trip in design patterns</string>
     <string name="material_component">Material Components</string>
     <string name="simple_dialog">Simple Dialog</string>
     <string name="alert_dialog">Alert Dialog</string>
@@ -70,4 +71,10 @@
     <string name="recycler_view">Recycler View</string>
     <string name="grid_view">Grid Recycler View</string>
     <string name="lottieAnimation">Lottie Animation</string>
+    <string name="design_patterns">Design Patterns</string>
+    <string name="creational_design_pattern">Creational Design Patterns</string>
+    <string name="builder_design_pattern">Builder Design Pattern</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="age">Age</string>
 </resources>

@@ -11,7 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.animation.LottieAnimationActivity"></activity>
+        <activity android:name=".ui.activities.designPattern.BuilderDPActivity"></activity>
+        <activity android:name=".ui.activities.designPattern.CreationalDPActivity" />
+        <activity android:name=".ui.activities.designPattern.DesignPatternsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activities.animation.LottieAnimationActivity" />
         <activity android:name=".ui.activities.animation.RGAnimationActivity" />
         <activity android:name=".ui.activities.animation.RVAnimationActivity" />
         <activity android:name=".ui.activities.animation.RecyclerViewAnimationActivity" />
@@ -19,13 +28,7 @@
         <activity android:name=".ui.activities.animation.SharedElementActivity" />
         <activity android:name=".ui.activities.animation.ShimmerAnimationActivity" />
         <activity android:name=".ui.activities.animation.AnimationResourcesActivity" />
-        <activity android:name=".ui.activities.animation.AnimationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ui.activities.animation.AnimationActivity"></activity>
         <activity android:name=".ui.activities.materialComponent.ChipsActivity" />
         <activity android:name=".ui.activities.materialComponent.BottomAppBarActivity" />
         <activity android:name=".ui.activities.materialComponent.MaterialDialogActivity" />
