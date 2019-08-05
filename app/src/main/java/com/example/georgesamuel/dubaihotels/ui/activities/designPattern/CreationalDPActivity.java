@@ -33,12 +33,16 @@ public class CreationalDPActivity extends AppCompatActivity {
 
     private void initAdapter() {
         patternsList.add(getString(R.string.creational_design_pattern));
+        patternsList.add(getString(R.string.factory_design_pattern));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, patternsList);
         creationalDBLV.setAdapter(adapter);
         creationalDBLV.setOnItemClickListener((adapterView, view, position, l) -> {
             switch (position) {
                 case 0:
                     goToActivity(BuilderDPActivity.class);
+                    break;
+                case 1:
+                    goToActivity(FactoryDPActivity.class);
                     break;
             }
         });
