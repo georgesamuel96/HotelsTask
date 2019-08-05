@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.georgesamuel.dubaihotels.R;
+import com.example.georgesamuel.dubaihotels.designpatterns.adapter.AudioPlayer;
 import com.example.georgesamuel.dubaihotels.designpatterns.builder.User;
 import com.example.georgesamuel.dubaihotels.designpatterns.factory.Wheel;
 import com.example.georgesamuel.dubaihotels.designpatterns.factory.WheelFactory;
@@ -26,8 +27,10 @@ public class DesignPatternsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_design_patterns);
-        //example on singleton
+        //singleton pattern
         SingletonClass singletonClass=SingletonClass.getInstance();
+
+        //Observer Pattern
         thirdFragment = new ThirdFragment();
         secondFragment = new SecondFragment();
         firstFragment = new FirstFragment();
@@ -39,16 +42,27 @@ public class DesignPatternsActivity extends AppCompatActivity {
         transaction.commit();
         thirdFragment.registerObserver(secondFragment);
         thirdFragment.registerObserver(firstFragment);
+
+        //Builder Pattern
         new User.Builder()
                 .setFirstName("Al Shaymaa")
                 .setLastName("Mohamed")
                 .setAge(67)
                 .create();
+
+        //Factory Pattern
         Wheel carWheel = WheelFactory.getWheel("Carwheel", 15, 215);
         Wheel bikeWheel = WheelFactory.getWheel("Bikewheel", 18, 245);
 
         Log.e("carWheel","Car wheel specifications:" + carWheel);
         Log.e("bikeWheel","Car wheel specifications:" + bikeWheel);
+
+        //Adapter Pattern
+        AudioPlayer audioPlayer = new AudioPlayer();
+        audioPlayer.play("mp3", "beyond the horizon.mp3");
+        audioPlayer.play("mp4", "alone.mp4");
+        audioPlayer.play("vlc", "far far away.vlc");
+        audioPlayer.play("avi", "mind me.avi");
     }
 
     @Override
