@@ -29,7 +29,7 @@ public class MaterialBottomSheetActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetStandard);
        // set the peek height
-          bottomSheetBehavior.setPeekHeight(46);
+          bottomSheetBehavior.setPeekHeight(77);
 
     }
 @OnClick(R.id.button_open_modal_bottom_sheet)

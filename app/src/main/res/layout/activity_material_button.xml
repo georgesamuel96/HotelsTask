@@ -143,5 +143,14 @@
             android:backgroundTint="@color/softGreen"
             android:text="@string/button_open_collapse" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_open_bottom_sheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/softGreen"
+            android:text="@string/button_open_bottom_sheet" />
+
     </LinearLayout>
 </ScrollView>

@@ -17,6 +17,8 @@ public class MaterialButtonActivity extends AppCompatActivity {
 
     @BindView(R.id.button_open_collapse)
     MaterialButton btnOpenCollapse;
+    @BindView(R.id.button_open_bottom_sheet)
+    MaterialButton btnOpenBottomSheet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,12 @@ public class MaterialButtonActivity extends AppCompatActivity {
 
     @OnClick(R.id.button_open_collapse)
     public void openCollapseScreen(View view){
+        Intent intent=new Intent(MaterialButtonActivity.this, CollapsingToolBarActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.button_open_bottom_sheet)
+    public void openBottomSheetScreen(View view){
         Intent intent=new Intent(MaterialButtonActivity.this, MaterialBottomSheetActivity.class);
         startActivity(intent);
     }
