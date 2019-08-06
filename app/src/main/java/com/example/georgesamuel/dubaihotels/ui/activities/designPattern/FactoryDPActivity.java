@@ -18,7 +18,7 @@ public class FactoryDPActivity extends AppCompatActivity {
 
     @BindView(R.id.btn)
     AppCompatButton btn;
-    @BindView(R.id.tv)
+    @BindView(R.id.tv_type)
     TextView tv;
     private boolean isCar = true;
     private Wheel carWheel, bikeWheel;

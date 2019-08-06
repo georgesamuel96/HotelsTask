@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.designPattern.FactoryDPActivity"></activity>
+        <activity android:name=".ui.activities.designPattern.StructuralDPActivity"></activity>
+        <activity android:name=".ui.activities.designPattern.AdapterDPActivity" />
+        <activity android:name=".ui.activities.designPattern.FactoryDPActivity" />
         <activity android:name=".ui.activities.designPattern.ObserverDPActivity" />
         <activity android:name=".ui.activities.designPattern.BehavioralDPActivity" />
         <activity android:name=".ui.activities.designPattern.BuilderDPActivity" />

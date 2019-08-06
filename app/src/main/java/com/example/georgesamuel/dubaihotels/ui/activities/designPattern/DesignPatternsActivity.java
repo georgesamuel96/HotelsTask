@@ -2,6 +2,7 @@ package com.example.georgesamuel.dubaihotels.ui.activities.designPattern;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -33,6 +34,7 @@ public class DesignPatternsActivity extends AppCompatActivity {
 
     private void initAdapter() {
         patternsList.add(getString(R.string.creational_design_pattern));
+        patternsList.add(getString(R.string.structural_design_patterns));
         patternsList.add(getString(R.string.behavioral_design_pattern));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, patternsList);
         designLV.setAdapter(adapter);
@@ -42,6 +44,9 @@ public class DesignPatternsActivity extends AppCompatActivity {
                     goToActivity(CreationalDPActivity.class);
                     break;
                 case 1:
+                    goToActivity(StructuralDPActivity.class);
+                    break;
+                case 2:
                     goToActivity(BehavioralDPActivity.class);
                     break;
             }

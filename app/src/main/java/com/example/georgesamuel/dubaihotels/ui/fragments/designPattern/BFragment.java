@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -24,7 +23,7 @@ import butterknife.ButterKnife;
 public class BFragment extends Fragment implements Observer {
 
 
-    @BindView(R.id.tv)
+    @BindView(R.id.tv_type)
     TextView tv;
 
     public BFragment() {

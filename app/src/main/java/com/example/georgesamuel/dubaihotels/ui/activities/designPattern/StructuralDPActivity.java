@@ -15,41 +15,37 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CreationalDPActivity extends AppCompatActivity {
+public class StructuralDPActivity extends AppCompatActivity {
 
-    @BindView(R.id.creationalDBLV)
-    ListView creationalDBLV;
+    @BindView(R.id.structuralDBLV)
+    ListView structuralDBLV;
     List<String> patternsList = new ArrayList<>();
     private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_creational_dp);
+        setContentView(R.layout.activity_structural_dp);
         ButterKnife.bind(this);
 
         initAdapter();
     }
 
     private void initAdapter() {
-        patternsList.add(getString(R.string.builder_design_pattern));
-        patternsList.add(getString(R.string.factory_design_pattern));
+        patternsList.add(getString(R.string.adapter_design_pattern));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, patternsList);
-        creationalDBLV.setAdapter(adapter);
-        creationalDBLV.setOnItemClickListener((adapterView, view, position, l) -> {
+        structuralDBLV.setAdapter(adapter);
+        structuralDBLV.setOnItemClickListener((adapterView, view, position, l) -> {
             switch (position) {
                 case 0:
-                    goToActivity(BuilderDPActivity.class);
-                    break;
-                case 1:
-                    goToActivity(FactoryDPActivity.class);
+                    goToActivity(AdapterDPActivity.class);
                     break;
             }
         });
     }
 
     private void goToActivity(Class mainClass) {
-        Intent intent = new Intent(CreationalDPActivity.this, mainClass);
+        Intent intent = new Intent(StructuralDPActivity.this, mainClass);
         startActivity(intent);
     }
 }
