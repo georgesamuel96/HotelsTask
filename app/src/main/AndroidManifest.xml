@@ -17,7 +17,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".rxjava.RxJavaActivity">
+
+        </activity>
         <activity android:name=".designpatterns.DesignPatternsActivity">
+
+        </activity>
+        <activity android:name=".animations.LottieActivity"></activity>
+        <activity android:name=".animations.OptionsDetailsActivity" />
+        <activity android:name=".animations.OptionsCompatActivity" />
+        <activity android:name=".animations.ShimmerLayoutActivity" />
+        <activity android:name=".component.CollapsingToolBarActivity" />
+        <activity android:name=".component.MaterialButtonActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -25,14 +36,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".animations.LottieActivity">
-
-        </activity>
-        <activity android:name=".animations.OptionsDetailsActivity" />
-        <activity android:name=".animations.OptionsCompatActivity" />
-        <activity android:name=".animations.ShimmerLayoutActivity" />
-        <activity android:name=".component.CollapsingToolBarActivity" />
-        <activity android:name=".component.MaterialButtonActivity"></activity>
         <activity android:name=".component.MaterialBottomSheetActivity" />
         <activity android:name=".coordinate.CustomBehaviourCoordinateActivity" />
         <activity android:name=".constraint.ConstraintTestActivity" />
