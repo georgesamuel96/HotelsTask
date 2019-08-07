@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.designPattern.StructuralDPActivity"></activity>
+        <activity android:name=".ui.activities.RxJava.RxJavaActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activities.designPattern.StructuralDPActivity" />
         <activity android:name=".ui.activities.designPattern.AdapterDPActivity" />
         <activity android:name=".ui.activities.designPattern.FactoryDPActivity" />
         <activity android:name=".ui.activities.designPattern.ObserverDPActivity" />
@@ -19,11 +26,7 @@
         <activity android:name=".ui.activities.designPattern.BuilderDPActivity" />
         <activity android:name=".ui.activities.designPattern.CreationalDPActivity" />
         <activity android:name=".ui.activities.designPattern.DesignPatternsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.activities.animation.LottieAnimationActivity" />
         <activity android:name=".ui.activities.animation.RGAnimationActivity" />
