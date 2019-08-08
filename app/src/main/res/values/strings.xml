@@ -87,4 +87,5 @@
     <string name="structural_design_patterns">Structural Design Pattern</string>
     <string name="player">Player</string>
     <string name="rx_java">RxJava</string>
+    <string name="dagger2">Dagger2</string>
 </resources>
