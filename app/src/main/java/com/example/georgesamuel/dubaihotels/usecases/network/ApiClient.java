@@ -8,6 +8,8 @@ import com.example.georgesamuel.dubaihotels.presentation.features.HotelsApplicat
 
 import java.util.concurrent.TimeUnit;
 
+import dagger.Module;
+import dagger.Provides;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -24,8 +26,7 @@ public class ApiClient {
     private static Retrofit retrofit = null;
     private static OkHttpClient okHttpClient;
 
-
-    public static Retrofit getClient(Context context) {
+    public static Retrofit getClient() {
 
         String BASE_URL = "https://webkeyztest.getsandbox.com/";
         if (okHttpClient == null)
