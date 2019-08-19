@@ -39,16 +39,17 @@
         <activity android:name=".ui.activities.materialComponent.BottomAppBarActivity" />
         <activity android:name=".ui.activities.materialComponent.MaterialDialogActivity" />
         <activity android:name=".ui.activities.materialComponent.MaterialComponentActivity"></activity>
-        <activity android:name=".ui.activities.materialDesign.CoordinatorLayoutCustomBehaviorActivity" />
-        <activity android:name=".ui.activities.materialDesign.CoordinatorLayoutDefaultBehavior" />
-        <activity android:name=".ui.activities.materialDesign.ConstraintLayoutActivity" />
-        <activity android:name=".Hotels.ui.DetailActivity" />
-        <activity android:name=".Hotels.ui.MainActivity">
+        <activity android:name=".materialDesign.CoordinatorLayoutCustomBehaviorActivity" />
+        <activity android:name=".materialDesign.CoordinatorLayoutDefaultBehavior" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".materialDesign.ConstraintLayoutActivity" />
+        <activity android:name=".Hotels.ui.DetailActivity" />
+        <activity android:name=".Hotels.ui.MainActivity">
         </activity>
 
         <meta-data

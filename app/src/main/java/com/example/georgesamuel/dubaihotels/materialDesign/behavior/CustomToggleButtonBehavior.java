@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.model;
+package com.example.georgesamuel.dubaihotels.materialDesign.behavior;
 
 import android.content.Context;
 import android.util.AttributeSet;
