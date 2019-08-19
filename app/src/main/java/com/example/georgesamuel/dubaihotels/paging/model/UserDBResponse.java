@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.model.paging;
+package com.example.georgesamuel.dubaihotels.paging.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

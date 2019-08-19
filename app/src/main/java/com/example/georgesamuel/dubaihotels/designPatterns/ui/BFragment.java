@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.fragments.designPattern;
+package com.example.georgesamuel.dubaihotels.designPatterns.ui;
 
 
 import android.os.Bundle;
@@ -20,13 +20,13 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AFragment extends Fragment implements Observer {
+public class BFragment extends Fragment implements Observer {
 
 
     @BindView(R.id.tv_type)
     TextView tv;
 
-    public AFragment() {
+    public BFragment() {
         // Required empty public constructor
     }
 
@@ -35,7 +35,7 @@ public class AFragment extends Fragment implements Observer {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_a, container, false);
+        View view = inflater.inflate(R.layout.fragment_b, container, false);
         ButterKnife.bind(this, view);
 
         return view;
@@ -45,10 +45,10 @@ public class AFragment extends Fragment implements Observer {
     public void update(boolean checked) {
         if (checked) {
             //tv.setText("ON");
-            Log.d("Fragment A", "update: ON");
+            Log.d("Fragment B", "update: ON");
         } else {
             //tv.setText("OFF");
-            Log.d("Fragment A", "update: OFF");
+            Log.d("Fragment B", "update: OFF");
         }
     }
 }

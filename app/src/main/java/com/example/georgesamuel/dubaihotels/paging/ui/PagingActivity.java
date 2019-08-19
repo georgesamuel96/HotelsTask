@@ -1,22 +1,18 @@
-package com.example.georgesamuel.dubaihotels.ui.activities;
+package com.example.georgesamuel.dubaihotels.paging.ui;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.paging.PagedList;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.adapter.UserAdapter;
-import com.example.georgesamuel.dubaihotels.model.paging.User;
+import com.example.georgesamuel.dubaihotels.paging.model.User;
 import com.example.georgesamuel.dubaihotels.viewModel.MainActivityViewModel;
 
 import butterknife.BindView;

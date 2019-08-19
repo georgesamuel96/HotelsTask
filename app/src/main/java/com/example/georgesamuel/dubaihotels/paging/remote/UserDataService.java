@@ -1,6 +1,6 @@
-package com.example.georgesamuel.dubaihotels.remote;
+package com.example.georgesamuel.dubaihotels.paging.remote;
 
-import com.example.georgesamuel.dubaihotels.model.paging.UserDBResponse;
+import com.example.georgesamuel.dubaihotels.paging.model.UserDBResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

@@ -5,18 +5,16 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.paging.PageKeyedDataSource;
 
-import com.example.georgesamuel.dubaihotels.model.paging.User;
-import com.example.georgesamuel.dubaihotels.model.paging.UserDBResponse;
-import com.example.georgesamuel.dubaihotels.remote.RetrofitInstance;
-import com.example.georgesamuel.dubaihotels.remote.UserDataService;
+import com.example.georgesamuel.dubaihotels.paging.model.User;
+import com.example.georgesamuel.dubaihotels.paging.model.UserDBResponse;
+import com.example.georgesamuel.dubaihotels.paging.remote.RetrofitInstance;
+import com.example.georgesamuel.dubaihotels.paging.remote.UserDataService;
 
 import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static kotlin.text.Typography.amp;
 
 public class UserDataSource extends PageKeyedDataSource<Long, User> {
 

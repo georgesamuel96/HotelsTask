@@ -5,9 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.ui.fragments.designPattern.AFragment;
-import com.example.georgesamuel.dubaihotels.ui.fragments.designPattern.BFragment;
-import com.example.georgesamuel.dubaihotels.ui.fragments.designPattern.CFragment;
 
 public class ObserverDPActivity extends AppCompatActivity {
 

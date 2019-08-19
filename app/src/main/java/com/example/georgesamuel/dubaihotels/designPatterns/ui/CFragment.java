@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.fragments.designPattern;
+package com.example.georgesamuel.dubaihotels.designPatterns.ui;
 
 
 import android.os.Bundle;

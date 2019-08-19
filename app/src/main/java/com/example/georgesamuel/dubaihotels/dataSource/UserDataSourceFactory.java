@@ -3,7 +3,7 @@ package com.example.georgesamuel.dubaihotels.dataSource;
 import androidx.lifecycle.MutableLiveData;
 import androidx.paging.DataSource;
 
-import com.example.georgesamuel.dubaihotels.remote.UserDataService;
+import com.example.georgesamuel.dubaihotels.paging.remote.UserDataService;
 
 public class UserDataSourceFactory extends DataSource.Factory {
 

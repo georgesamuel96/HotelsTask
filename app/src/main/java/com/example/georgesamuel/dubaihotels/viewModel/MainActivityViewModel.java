@@ -9,9 +9,9 @@ import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 
 import com.example.georgesamuel.dubaihotels.dataSource.UserDataSourceFactory;
-import com.example.georgesamuel.dubaihotels.model.paging.User;
-import com.example.georgesamuel.dubaihotels.remote.RetrofitInstance;
-import com.example.georgesamuel.dubaihotels.remote.UserDataService;
+import com.example.georgesamuel.dubaihotels.paging.model.User;
+import com.example.georgesamuel.dubaihotels.paging.remote.RetrofitInstance;
+import com.example.georgesamuel.dubaihotels.paging.remote.UserDataService;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
