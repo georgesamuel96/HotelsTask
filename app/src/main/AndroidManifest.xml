@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.georgesamuel.dubaihotels">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +11,53 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".workManager.ui.WorkManagerActivity" />
+        <activity android:name=".paging.ui.PagingActivity"></activity>
+        <activity android:name=".RxJava.RxJavaActivity" />
+        <activity android:name=".RxJava.RxJavaOperatorsActivity" />
+        <activity android:name=".designPatterns.ui.StructuralDPActivity" />
+        <activity android:name=".designPatterns.ui.AdapterDPActivity" />
+        <activity android:name=".designPatterns.ui.FactoryDPActivity" />
+        <activity android:name=".designPatterns.ui.ObserverDPActivity" />
+        <activity android:name=".designPatterns.ui.BehavioralDPActivity" />
+        <activity android:name=".designPatterns.ui.BuilderDPActivity" />
+        <activity android:name=".designPatterns.ui.CreationalDPActivity" />
+        <activity android:name=".designPatterns.ui.DesignPatternsActivity"></activity>
+        <activity android:name=".animation.ui.LottieAnimationActivity" />
+        <activity android:name=".animation.ui.RGAnimationActivity" />
+        <activity android:name=".animation.ui.RVAnimationActivity" />
+        <activity android:name=".animation.ui.RecyclerViewAnimationActivity" />
+        <activity android:name=".animation.ui.DetailsActivity" />
+        <activity android:name=".animation.ui.SharedElementActivity" />
+        <activity android:name=".animation.ui.ShimmerAnimationActivity" />
+        <activity android:name=".animation.ui.AnimationResourcesActivity" />
+        <activity android:name=".animation.ui.AnimationActivity" />
+        <activity android:name=".materialComponent.ui.ChipsActivity" />
+        <activity android:name=".materialComponent.ui.BottomAppBarActivity" />
+        <activity android:name=".materialComponent.ui.MaterialDialogActivity" />
+        <activity android:name=".materialComponent.ui.MaterialComponentActivity">
+
+        </activity>
+        <activity android:name=".materialDesign.CoordinatorLayoutCustomBehaviorActivity" />
+        <activity android:name=".materialDesign.CoordinatorLayoutDefaultBehavior"></activity>
+        <activity android:name=".materialDesign.ConstraintLayoutActivity" />
+        <activity android:name=".Hotels.ui.DetailActivity" />
+        <activity android:name=".Hotels.ui.MainActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
     </application>
 
 </manifest>

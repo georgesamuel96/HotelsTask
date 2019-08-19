@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".materialComponent.ui.MaterialDialogActivity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/alertDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alert_dialog"
+            style="@style/ButtonTheme" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/simpleAlertDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/simple_dialog"
+            style="@style/ButtonTheme"
+            android:layout_marginTop="@dimen/_8sdp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/confirmationAlertDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirmation_dialog"
+            style="@style/ButtonTheme"
+            android:layout_marginTop="@dimen/_8sdp"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
