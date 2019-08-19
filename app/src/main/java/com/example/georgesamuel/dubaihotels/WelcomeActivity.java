@@ -13,6 +13,7 @@ import com.example.georgesamuel.dubaihotels.animation.ui.AnimationActivity;
 import com.example.georgesamuel.dubaihotels.designPatterns.ui.DesignPatternsActivity;
 import com.example.georgesamuel.dubaihotels.materialComponent.ui.MaterialComponentActivity;
 import com.example.georgesamuel.dubaihotels.paging.ui.PagingActivity;
+import com.example.georgesamuel.dubaihotels.workManager.ui.WorkManagerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,6 +33,8 @@ public class WelcomeActivity extends AppCompatActivity {
     AppCompatButton paging;
     @BindView(R.id.rxJava)
     AppCompatButton rxJava;
+    @BindView(R.id.workManager)
+    AppCompatButton workManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,8 @@ public class WelcomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.hotels, R.id.animation, R.id.designPatterns, R.id.materialComponents, R.id.paging, R.id.rxJava})
+    @OnClick({R.id.hotels, R.id.animation, R.id.designPatterns, R.id.materialComponents, R.id.paging, R.id.rxJava,
+            R.id.workManager})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.hotels:
@@ -60,6 +64,9 @@ public class WelcomeActivity extends AppCompatActivity {
                 break;
             case R.id.rxJava:
                 goToActivity(RxJavaActivity.class);
+                break;
+            case R.id.workManager:
+                goToActivity(WorkManagerActivity.class);
                 break;
         }
     }
