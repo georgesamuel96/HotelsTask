@@ -1,6 +1,6 @@
 package com.example.georgesamuel.dubaihotels.remote;
 
-import com.example.georgesamuel.dubaihotels.model.hotel.HotelsResponse;
+import com.example.georgesamuel.dubaihotels.Hotels.model.HotelsResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

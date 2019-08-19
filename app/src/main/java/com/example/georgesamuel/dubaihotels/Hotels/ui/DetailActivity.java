@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.hotels;
+package com.example.georgesamuel.dubaihotels.Hotels.ui;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -25,13 +25,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_ADDRESS;
-import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_HIGH;
-import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_IMAGE_URL;
-import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_LATITUDE;
-import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_LONGITUDE;
-import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_LOW;
-import static com.example.georgesamuel.dubaihotels.adapter.HotelAdapter.EXTRA_HOTEL_NAME;
+import static com.example.georgesamuel.dubaihotels.Hotels.adapter.HotelAdapter.EXTRA_HOTEL_ADDRESS;
+import static com.example.georgesamuel.dubaihotels.Hotels.adapter.HotelAdapter.EXTRA_HOTEL_HIGH;
+import static com.example.georgesamuel.dubaihotels.Hotels.adapter.HotelAdapter.EXTRA_HOTEL_IMAGE_URL;
+import static com.example.georgesamuel.dubaihotels.Hotels.adapter.HotelAdapter.EXTRA_HOTEL_LATITUDE;
+import static com.example.georgesamuel.dubaihotels.Hotels.adapter.HotelAdapter.EXTRA_HOTEL_LONGITUDE;
+import static com.example.georgesamuel.dubaihotels.Hotels.adapter.HotelAdapter.EXTRA_HOTEL_LOW;
+import static com.example.georgesamuel.dubaihotels.Hotels.adapter.HotelAdapter.EXTRA_HOTEL_NAME;
 
 public class DetailActivity extends AppCompatActivity implements OnMapReadyCallback {
 

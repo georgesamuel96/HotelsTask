@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.hotels;
+package com.example.georgesamuel.dubaihotels.Hotels.ui;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,10 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.georgesamuel.dubaihotels.Hotels.viewModel.HotelViewModel;
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.adapter.HotelAdapter;
-import com.example.georgesamuel.dubaihotels.model.hotel.Hotel;
-import com.example.georgesamuel.dubaihotels.viewModel.HotelViewModel;
+import com.example.georgesamuel.dubaihotels.Hotels.adapter.HotelAdapter;
+import com.example.georgesamuel.dubaihotels.Hotels.model.Hotel;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;

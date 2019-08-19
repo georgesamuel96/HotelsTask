@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/main_container"
-    tools:context=".ui.activities.hotels.MainActivity">
+    tools:context=".Hotels.ui.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -28,8 +28,6 @@
         </androidx.recyclerview.widget.RecyclerView>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-
 
     <ProgressBar
         android:id="@+id/loading"

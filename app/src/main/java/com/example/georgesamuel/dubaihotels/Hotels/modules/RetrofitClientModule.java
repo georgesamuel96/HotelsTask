@@ -1,8 +1,8 @@
-package com.example.georgesamuel.dubaihotels.dagger2.modules;
+package com.example.georgesamuel.dubaihotels.Hotels.modules;
 
 import android.content.Context;
 
-import com.example.georgesamuel.dubaihotels.dagger2.ClientAPI;
+import com.example.georgesamuel.dubaihotels.Hotels.remote.ClientAPI;
 import com.example.georgesamuel.dubaihotels.util.CheckNetwork;
 
 import java.util.concurrent.TimeUnit;

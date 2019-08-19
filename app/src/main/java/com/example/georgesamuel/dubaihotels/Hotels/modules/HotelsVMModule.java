@@ -1,6 +1,7 @@
-package com.example.georgesamuel.dubaihotels.dagger2.modules;
+package com.example.georgesamuel.dubaihotels.Hotels.modules;
 
-import com.example.georgesamuel.dubaihotels.dagger2.scopes.HotelsVMCustomScope;
+import com.example.georgesamuel.dubaihotels.Hotels.scopes.HotelsVMCustomScope;
+import com.example.georgesamuel.dubaihotels.Hotels.viewModel.HotelViewModel;
 
 import dagger.Module;
 import dagger.Provides;

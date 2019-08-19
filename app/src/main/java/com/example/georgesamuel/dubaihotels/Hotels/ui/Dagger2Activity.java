@@ -1,17 +1,16 @@
-package com.example.georgesamuel.dubaihotels.dagger2;
+package com.example.georgesamuel.dubaihotels.Hotels.ui;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.adapter.HotelAdapter;
-import com.example.georgesamuel.dubaihotels.dagger2.modules.HotelViewModel;
-import com.example.georgesamuel.dubaihotels.model.hotel.Hotel;
+import com.example.georgesamuel.dubaihotels.Hotels.adapter.HotelAdapter;
+import com.example.georgesamuel.dubaihotels.Hotels.viewModel.HotelViewModel;
+import com.example.georgesamuel.dubaihotels.Hotels.model.Hotel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +26,7 @@ public class Dagger2Activity extends AppCompatActivity {
     private static final String TAG = AppCompatActivity.class.getSimpleName();
     private HotelAdapter adapter;
     private List<Hotel> hotelsList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

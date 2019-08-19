@@ -1,17 +1,16 @@
-package com.example.georgesamuel.dubaihotels.dagger2;
+package com.example.georgesamuel.dubaihotels.Hotels.repository;
 
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.georgesamuel.dubaihotels.model.hotel.Hotel;
-import com.example.georgesamuel.dubaihotels.model.hotel.HotelsResponse;
+import com.example.georgesamuel.dubaihotels.Hotels.remote.ClientAPI;
+import com.example.georgesamuel.dubaihotels.Hotels.model.Hotel;
+import com.example.georgesamuel.dubaihotels.Hotels.model.HotelsResponse;
 
 import java.io.IOException;
 import java.util.List;
-
-import javax.inject.Inject;
 
 import retrofit2.Call;
 import retrofit2.Callback;

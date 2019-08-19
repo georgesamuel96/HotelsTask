@@ -1,11 +1,11 @@
-package com.example.georgesamuel.dubaihotels.dagger2.modules;
+package com.example.georgesamuel.dubaihotels.Hotels.viewModel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.georgesamuel.dubaihotels.dagger2.components.HotelsRepoComponent;
-import com.example.georgesamuel.dubaihotels.dagger2.HotelsRepository;
-import com.example.georgesamuel.dubaihotels.model.hotel.Hotel;
+import com.example.georgesamuel.dubaihotels.Hotels.components.HotelsRepoComponent;
+import com.example.georgesamuel.dubaihotels.Hotels.repository.HotelsRepository;
+import com.example.georgesamuel.dubaihotels.Hotels.model.Hotel;
 
 import java.util.List;
 

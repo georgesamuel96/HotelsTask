@@ -1,7 +1,7 @@
-package com.example.georgesamuel.dubaihotels.dagger2.components;
+package com.example.georgesamuel.dubaihotels.Hotels.components;
 
-import com.example.georgesamuel.dubaihotels.dagger2.ClientAPI;
-import com.example.georgesamuel.dubaihotels.dagger2.modules.RetrofitClientModule;
+import com.example.georgesamuel.dubaihotels.Hotels.remote.ClientAPI;
+import com.example.georgesamuel.dubaihotels.Hotels.modules.RetrofitClientModule;
 
 import javax.inject.Singleton;
 

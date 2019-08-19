@@ -1,8 +1,8 @@
-package com.example.georgesamuel.dubaihotels.dagger2.components;
+package com.example.georgesamuel.dubaihotels.Hotels.components;
 
-import com.example.georgesamuel.dubaihotels.dagger2.scopes.HotelsCustomScope;
-import com.example.georgesamuel.dubaihotels.dagger2.modules.HotelViewModel;
-import com.example.georgesamuel.dubaihotels.dagger2.modules.HotelsRepoModule;
+import com.example.georgesamuel.dubaihotels.Hotels.scopes.HotelsCustomScope;
+import com.example.georgesamuel.dubaihotels.Hotels.viewModel.HotelViewModel;
+import com.example.georgesamuel.dubaihotels.Hotels.modules.HotelsRepoModule;
 
 import dagger.Component;
 

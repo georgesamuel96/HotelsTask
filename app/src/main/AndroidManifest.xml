@@ -11,14 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.PagingActivity">
-        </activity>
-        <activity android:name=".dagger2.Dagger2Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".ui.activities.WorkManagerActivity"></activity>
+        <activity android:name=".ui.activities.PagingActivity"></activity>
+        <activity android:name=".Hotels.ui.Dagger2Activity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.activities.RxJava.RxJavaActivity" />
         <activity android:name=".ui.activities.RxJava.RxJavaOperatorsActivity" />
@@ -42,14 +38,18 @@
         <activity android:name=".ui.activities.materialComponent.ChipsActivity" />
         <activity android:name=".ui.activities.materialComponent.BottomAppBarActivity" />
         <activity android:name=".ui.activities.materialComponent.MaterialDialogActivity" />
-        <activity android:name=".ui.activities.materialComponent.MaterialComponentActivity">
-
-        </activity>
+        <activity android:name=".ui.activities.materialComponent.MaterialComponentActivity"></activity>
         <activity android:name=".ui.activities.materialDesign.CoordinatorLayoutCustomBehaviorActivity" />
         <activity android:name=".ui.activities.materialDesign.CoordinatorLayoutDefaultBehavior" />
         <activity android:name=".ui.activities.materialDesign.ConstraintLayoutActivity" />
-        <activity android:name=".ui.activities.hotels.DetailActivity" />
-        <activity android:name=".ui.activities.hotels.MainActivity" />
+        <activity android:name=".Hotels.ui.DetailActivity" />
+        <activity android:name=".Hotels.ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
