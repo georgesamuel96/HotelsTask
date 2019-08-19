@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".dagger2.Dagger2DetailActivity"></activity>
+        <activity android:name=".ui.activities.PagingActivity">
+        </activity>
         <activity android:name=".dagger2.Dagger2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activities.RxJava.RxJavaActivity" />
-        <activity android:name=".ui.activities.RxJava.RxJavaOperatorsActivity"></activity>
+        <activity android:name=".ui.activities.RxJava.RxJavaOperatorsActivity" />
         <activity android:name=".ui.activities.designPattern.StructuralDPActivity" />
         <activity android:name=".ui.activities.designPattern.AdapterDPActivity" />
         <activity android:name=".ui.activities.designPattern.FactoryDPActivity" />
@@ -41,7 +42,9 @@
         <activity android:name=".ui.activities.materialComponent.ChipsActivity" />
         <activity android:name=".ui.activities.materialComponent.BottomAppBarActivity" />
         <activity android:name=".ui.activities.materialComponent.MaterialDialogActivity" />
-        <activity android:name=".ui.activities.materialComponent.MaterialComponentActivity" />
+        <activity android:name=".ui.activities.materialComponent.MaterialComponentActivity">
+
+        </activity>
         <activity android:name=".ui.activities.materialDesign.CoordinatorLayoutCustomBehaviorActivity" />
         <activity android:name=".ui.activities.materialDesign.CoordinatorLayoutDefaultBehavior" />
         <activity android:name=".ui.activities.materialDesign.ConstraintLayoutActivity" />

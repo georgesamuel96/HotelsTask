@@ -11,10 +11,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import dagger.Module;
-import dagger.Provides;
-
-@Module
 public class HotelViewModel extends ViewModel {
 
 
@@ -29,7 +25,6 @@ public class HotelViewModel extends ViewModel {
         errorMessage = hotelsRepository.showError();
     }
 
-    @Provides
     public LiveData<List<Hotel>> getHotels() {
         return hotelsList;
     }
@@ -37,7 +32,6 @@ public class HotelViewModel extends ViewModel {
     /*
         Using this method when error occurred while getting data from server
      */
-    @Provides
     public LiveData<String> showError() {
         return errorMessage;
     }
@@ -45,7 +39,6 @@ public class HotelViewModel extends ViewModel {
     /*
         Using this method when user want to refresh hotel list
      */
-    @Provides
     public LiveData<List<Hotel>> updateHotels() {
         hotelsList = hotelsRepository.getHotels();
         return hotelsList;
