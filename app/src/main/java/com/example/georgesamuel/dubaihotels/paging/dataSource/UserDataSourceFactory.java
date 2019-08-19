@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.dataSource;
+package com.example.georgesamuel.dubaihotels.paging.dataSource;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.paging.DataSource;

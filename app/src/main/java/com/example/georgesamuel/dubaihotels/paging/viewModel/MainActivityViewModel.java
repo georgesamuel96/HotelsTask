@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.viewModel;
+package com.example.georgesamuel.dubaihotels.paging.viewModel;
 
 import android.app.Application;
 
@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 
-import com.example.georgesamuel.dubaihotels.dataSource.UserDataSourceFactory;
+import com.example.georgesamuel.dubaihotels.paging.dataSource.UserDataSourceFactory;
 import com.example.georgesamuel.dubaihotels.paging.model.User;
 import com.example.georgesamuel.dubaihotels.paging.remote.RetrofitInstance;
 import com.example.georgesamuel.dubaihotels.paging.remote.UserDataService;

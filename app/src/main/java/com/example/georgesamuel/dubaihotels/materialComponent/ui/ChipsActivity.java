@@ -1,8 +1,6 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.materialComponent;
+package com.example.georgesamuel.dubaihotels.materialComponent.ui;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.Toast;
 
@@ -11,7 +9,6 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.google.android.material.chip.Chip;
-import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.chip.ChipGroup;
 
 import butterknife.BindView;
@@ -25,8 +22,6 @@ public class ChipsActivity extends AppCompatActivity implements View.OnClickList
     Chip chipEntry;
     @BindView(R.id.singleChips)
     ChipGroup singleChips;
-    @BindView(R.id.btnShowChips)
-    AppCompatButton btnShowChips;
     @BindView(R.id.multiChips)
     ChipGroup multiChips;
 
@@ -38,7 +33,6 @@ public class ChipsActivity extends AppCompatActivity implements View.OnClickList
 
         chipDefault.setOnClickListener(this);
         chipEntry.setOnCloseIconClickListener(view -> chipEntry.setChecked(false));
-        btnShowChips.setOnClickListener(this);
         addChipDynamic();
     }
 
@@ -56,12 +50,6 @@ public class ChipsActivity extends AppCompatActivity implements View.OnClickList
             case R.id.chip:
                 Toast.makeText(ChipsActivity.this, R.string.chip_clicked, Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.btnShowChips: {
-                int checked = singleChips.getCheckedChipId();
-                Chip checkChip = findViewById(checked);
-                Toast.makeText(ChipsActivity.this, checkChip.getText(), Toast.LENGTH_SHORT).show();
-                break;
-            }
         }
     }
 }

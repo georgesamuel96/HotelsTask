@@ -13,11 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activities.WorkManagerActivity"></activity>
         <activity android:name=".paging.ui.PagingActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.activities.RxJava.RxJavaActivity" />
         <activity android:name=".ui.activities.RxJava.RxJavaOperatorsActivity" />
@@ -29,7 +25,6 @@
         <activity android:name=".designPatterns.ui.BuilderDPActivity" />
         <activity android:name=".designPatterns.ui.CreationalDPActivity" />
         <activity android:name=".designPatterns.ui.DesignPatternsActivity">
-
         </activity>
         <activity android:name=".ui.activities.animation.LottieAnimationActivity" />
         <activity android:name=".ui.activities.animation.RGAnimationActivity" />
@@ -40,10 +35,16 @@
         <activity android:name=".ui.activities.animation.ShimmerAnimationActivity" />
         <activity android:name=".ui.activities.animation.AnimationResourcesActivity" />
         <activity android:name=".ui.activities.animation.AnimationActivity" />
-        <activity android:name=".ui.activities.materialComponent.ChipsActivity" />
-        <activity android:name=".ui.activities.materialComponent.BottomAppBarActivity" />
-        <activity android:name=".ui.activities.materialComponent.MaterialDialogActivity" />
-        <activity android:name=".ui.activities.materialComponent.MaterialComponentActivity"></activity>
+        <activity android:name=".materialComponent.ui.ChipsActivity" />
+        <activity android:name=".materialComponent.ui.BottomAppBarActivity" />
+        <activity android:name=".materialComponent.ui.MaterialDialogActivity" />
+        <activity android:name=".materialComponent.ui.MaterialComponentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".materialDesign.CoordinatorLayoutCustomBehaviorActivity" />
         <activity android:name=".materialDesign.CoordinatorLayoutDefaultBehavior" >
         </activity>

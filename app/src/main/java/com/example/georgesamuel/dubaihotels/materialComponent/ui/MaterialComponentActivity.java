@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.materialComponent;
+package com.example.georgesamuel.dubaihotels.materialComponent.ui;
 
 import android.content.Intent;
 import android.os.Bundle;

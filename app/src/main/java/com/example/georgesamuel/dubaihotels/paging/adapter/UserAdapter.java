@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.adapter;
+package com.example.georgesamuel.dubaihotels.paging.adapter;
 
 import android.content.Context;
 import android.util.Log;

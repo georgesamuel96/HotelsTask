@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.dataSource;
+package com.example.georgesamuel.dubaihotels.paging.dataSource;
 
 import android.util.Log;
 

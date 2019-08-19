@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.fragments;
+package com.example.georgesamuel.dubaihotels.materialComponent.ui;
 
 
 import android.os.Bundle;

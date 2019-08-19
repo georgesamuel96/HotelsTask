@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.model.alertDialog;
+package com.example.georgesamuel.dubaihotels.materialComponent.model;
 
 public class User {
 

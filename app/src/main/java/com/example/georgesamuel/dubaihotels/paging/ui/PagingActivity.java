@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.adapter.UserAdapter;
+import com.example.georgesamuel.dubaihotels.paging.adapter.UserAdapter;
 import com.example.georgesamuel.dubaihotels.paging.model.User;
-import com.example.georgesamuel.dubaihotels.viewModel.MainActivityViewModel;
+import com.example.georgesamuel.dubaihotels.paging.viewModel.MainActivityViewModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

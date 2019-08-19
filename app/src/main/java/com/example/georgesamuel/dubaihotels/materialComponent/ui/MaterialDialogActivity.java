@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.materialComponent;
+package com.example.georgesamuel.dubaihotels.materialComponent.ui;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +15,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.model.alertDialog.User;
+import com.example.georgesamuel.dubaihotels.materialComponent.model.User;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.materialComponent;
+package com.example.georgesamuel.dubaihotels.materialComponent.ui;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.ui.fragments.BottomSheetFragment;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;

@@ -7,7 +7,7 @@
     app:behavior_hideable="true"
     app:layout_behavior="@string/bottom_sheet_behavior"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.fragments.BottomSheetFragment"
+    tools:context=".materialComponent.ui.BottomSheetFragment"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
         <com.google.android.material.navigation.NavigationView

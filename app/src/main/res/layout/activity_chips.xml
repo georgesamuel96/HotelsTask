@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.materialComponent.ChipsActivity">
+    tools:context=".materialComponent.ui.ChipsActivity">
 
     <TextView
         android:id="@+id/textView3"
@@ -94,17 +94,6 @@
 
     </com.google.android.material.chip.ChipGroup>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnShowChips"
-        style="@style/ButtonTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/show"
-        app:layout_constraintStart_toStartOf="@+id/singleChips"
-        app:layout_constraintTop_toBottomOf="@+id/singleChips" />
-
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
@@ -112,7 +101,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/chips_group_multi"
         app:layout_constraintStart_toStartOf="@+id/chip_action"
-        app:layout_constraintTop_toBottomOf="@+id/btnShowChips"
+        app:layout_constraintTop_toBottomOf="@+id/singleChips"
         android:textSize="@dimen/_16ssp"
         android:textStyle="bold"/>
 
