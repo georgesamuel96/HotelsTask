@@ -1,16 +1,15 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.animation;
+package com.example.georgesamuel.dubaihotels.animation.ui;
 
 import android.os.Bundle;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
-import android.widget.ArrayAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.adapter.RVAdapter;
+import com.example.georgesamuel.dubaihotels.animation.adapter.RVAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

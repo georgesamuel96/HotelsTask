@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.adapter;
+package com.example.georgesamuel.dubaihotels.animation.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;

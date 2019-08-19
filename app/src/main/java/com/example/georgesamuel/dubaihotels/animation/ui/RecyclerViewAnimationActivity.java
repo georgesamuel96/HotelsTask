@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.animation;
+package com.example.georgesamuel.dubaihotels.animation.ui;
 
 import android.content.Intent;
 import android.os.Bundle;

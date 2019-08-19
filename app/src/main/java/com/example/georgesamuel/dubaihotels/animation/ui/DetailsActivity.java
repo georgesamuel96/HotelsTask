@@ -1,17 +1,12 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.animation;
+package com.example.georgesamuel.dubaihotels.animation.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityOptionsCompat;
 
 import com.example.georgesamuel.dubaihotels.R;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class DetailsActivity extends AppCompatActivity {
 

@@ -1,14 +1,11 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.animation;
+package com.example.georgesamuel.dubaihotels.animation.ui;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 

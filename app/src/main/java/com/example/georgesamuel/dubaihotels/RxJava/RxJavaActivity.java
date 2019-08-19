@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.RxJava;
+package com.example.georgesamuel.dubaihotels.RxJava;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,35 +7,20 @@ import android.util.Log;
 
 import com.example.georgesamuel.dubaihotels.R;
 
-import org.intellij.lang.annotations.Flow;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Completable;
-import io.reactivex.CompletableEmitter;
 import io.reactivex.CompletableObserver;
-import io.reactivex.CompletableOnSubscribe;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
-import io.reactivex.MaybeEmitter;
 import io.reactivex.MaybeObserver;
-import io.reactivex.MaybeOnSubscribe;
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.Scheduler;
 import io.reactivex.Single;
-import io.reactivex.SingleEmitter;
 import io.reactivex.SingleObserver;
-import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.BiFunction;
-import io.reactivex.functions.Function;
-import io.reactivex.functions.Predicate;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 

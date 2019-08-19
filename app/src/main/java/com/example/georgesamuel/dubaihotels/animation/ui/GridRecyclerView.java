@@ -4,7 +4,7 @@
     for more Clarification
  */
 
-package com.example.georgesamuel.dubaihotels.ui.activities.animation;
+package com.example.georgesamuel.dubaihotels.animation.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
