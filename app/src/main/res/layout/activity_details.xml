@@ -60,8 +60,26 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
    <Button
-       android:id="@+id/button_open_map"
-       android:text="OpenMap"
+       android:id="@+id/button_open_material_button_screen"
+       android:text="@string/open_material_button"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" />
+
+    <Button
+       android:id="@+id/button_open_custom_behaviour_coordinate_screen"
+       android:text="@string/open_custom_behaviour_coordinate"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" />
+
+    <Button
+       android:id="@+id/button_open_animation"
+       android:text="@string/open_animation"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" />
+
+    <Button
+       android:id="@+id/button_open_constraint"
+       android:text="@string/open_constraint"
        android:layout_width="match_parent"
        android:layout_height="wrap_content" />
 

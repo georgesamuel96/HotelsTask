@@ -15,7 +15,6 @@ public class HotelsUseCase {
 
     public HotelsUseCase() {
         hotelsRepository=new HotelsRepository();
-
     }
 
     public Observable<HotelsResponse> getHotelsDetails(){

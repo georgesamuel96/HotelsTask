@@ -58,4 +58,11 @@ Imperdiet id felis lectus accumsan class, neque nullam quam, adipiscing turpis v
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="navigate_destination_button">Navigate to destination</string>
+    <string name="navigate_action_button">Navigate with action</string>
+    <string name="open_material_button">OpenMaterialButton</string>
+    <string name="open_custom_behaviour_coordinate">OpenCustomBehaviourCoordinate</string>
+    <string name="open_animation">OpenAnimation</string>
+    <string name="open_constraint">OpenConstraint</string>
 </resources>

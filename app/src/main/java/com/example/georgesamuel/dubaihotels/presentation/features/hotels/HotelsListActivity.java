@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.entities.Hotel;
@@ -17,23 +18,23 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.supercharge.shimmerlayout.ShimmerLayout;
 
 public class HotelsListActivity extends AppCompatActivity {
 
-    @BindView(R.id.recycler_hotels)
+    @BindView(R.id.shimmer_recycler_view)
     RecyclerView hotelItemsRecyclerView;
+    @BindView(R.id.shimmer_layout)
+    ShimmerLayout shimmerLayout;
     @BindView(R.id.parent_constraint_layout)
     ConstraintLayout parentConstraintLayout;
-
     private HotelViewModel viewModel;
-    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        progressDialog = new ProgressDialog(this);
         viewModel = ViewModelProviders.of(this).get(HotelViewModel.class);
         initHotelsRecycler();
         observeGetHotels();
@@ -46,7 +47,6 @@ public class HotelsListActivity extends AppCompatActivity {
         hotelItemsRecyclerView.setAdapter(adapter);
     }
 
-
     private void initHotelsRecycler() {
         hotelItemsRecyclerView.setHasFixedSize(true);
         hotelItemsRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
@@ -58,10 +58,14 @@ public class HotelsListActivity extends AppCompatActivity {
     }
 
     private void observeLoadingIndicator() {
-        viewModel.isLoading.observe(this, isRetrieve -> {
-            if (isRetrieve) progressDialog.show();
+        viewModel.isLoading.observe(this, isLoading -> {
+            if (isLoading){
+                 shimmerLayout.setVisibility(View.VISIBLE);
+                 shimmerLayout.startShimmerAnimation();
+            }
             else {
-                progressDialog.dismiss();
+                shimmerLayout.stopShimmerAnimation();
+                shimmerLayout.setVisibility(View.GONE);
             }
         });
     }

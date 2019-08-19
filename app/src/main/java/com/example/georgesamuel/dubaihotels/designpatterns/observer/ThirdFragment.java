@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ToggleButton;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.example.georgesamuel.dubaihotels.R;
 
@@ -54,6 +55,7 @@ public class ThirdFragment extends Fragment implements Subject {
 
     @OnClick(R.id.toggleBtn)
     public void changeState(View view) {
-        notifyObservers();
+        Navigation.findNavController(view).navigate(R.id.action_from_home_to_first);
+       // notifyObservers();
     }
 }

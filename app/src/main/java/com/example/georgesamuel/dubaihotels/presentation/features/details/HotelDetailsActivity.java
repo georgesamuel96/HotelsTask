@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.georgesamuel.dubaihotels.animations.LottieActivity;
+import com.example.georgesamuel.dubaihotels.component.MaterialButtonActivity;
+import com.example.georgesamuel.dubaihotels.constraint.ConstraintTestActivity;
+import com.example.georgesamuel.dubaihotels.coordinate.CustomBehaviourCoordinateActivity;
 import com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity;
 import com.example.georgesamuel.dubaihotels.R;
 import com.example.georgesamuel.dubaihotels.entities.Hotel;
@@ -24,7 +28,7 @@ import static com.example.georgesamuel.dubaihotels.presentation.features.map.Map
 import static com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity.EXTRA_LATITUDE;
 import static com.example.georgesamuel.dubaihotels.presentation.features.map.MapActivity.EXTRA_LONGITUDE;
 
-public class HotelDetailsActivity extends AppCompatActivity  {
+public class HotelDetailsActivity extends AppCompatActivity {
 
     @BindView(R.id.text_hotel_name_details)
     TextView hotelNameTextView;
@@ -40,12 +44,18 @@ public class HotelDetailsActivity extends AppCompatActivity  {
     Toolbar toolbar;
     @BindView(R.id.image_back)
     ImageView backImageView;
-    @BindView(R.id.button_open_map)
-    Button openMapButton;
+    @BindView(R.id.button_open_material_button_screen)
+    Button openMaterialButton;
+    @BindView(R.id.button_open_custom_behaviour_coordinate_screen)
+    Button openCustomBehaviourButton;
+    @BindView(R.id.button_open_animation)
+    Button openAnimationButton;
+    @BindView(R.id.button_open_constraint)
+    Button openConstraintButton;
 
     boolean isImageFitToScreen;
     private Hotel hotel;
-    public static final String EXTRA_HOTEL_DETAILS=" com.example.georgesamuel.dubaihotels.details";
+    public static final String EXTRA_HOTEL_DETAILS = " com.example.georgesamuel.dubaihotels.details";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +63,7 @@ public class HotelDetailsActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_details);
         ButterKnife.bind(this);
         if (getIntent() != null) {
-             hotel = (Hotel) getIntent().getSerializableExtra(EXTRA_HOTEL_DETAILS);
+            hotel = (Hotel) getIntent().getSerializableExtra(EXTRA_HOTEL_DETAILS);
             setData(hotel);
         }
         setSupportActionBar(toolbar);
@@ -80,6 +90,13 @@ public class HotelDetailsActivity extends AppCompatActivity  {
         finish();
     }
 
+    @OnClick(R.id.button_open_custom_behaviour_coordinate_screen)
+    void openCustomBehaviourButton(View view) {
+        Intent intent = new Intent(this, CustomBehaviourCoordinateActivity.class);
+        startActivity(intent);
+    }
+
+
     @OnClick(R.id.image_hotel_details)
     void zoomImage(View view) {
         if (isImageFitToScreen) {
@@ -93,14 +110,26 @@ public class HotelDetailsActivity extends AppCompatActivity  {
         }
     }
 
-    @OnClick(R.id.button_open_map)
-    void openMap(View view) {
-        Intent intent=new Intent(this, MapActivity.class);
-        if(hotel!=null){
-            intent.putExtra(EXTRA_LONGITUDE,hotel.getLocation().getLongitude());
-            intent.putExtra(EXTRA_LATITUDE,hotel.getLocation().getLatitude());
-            intent.putExtra(EXTRA_HOTEL_NAME,hotel.getSummary().getHotelName());
-        }
+    @OnClick(R.id.button_open_material_button_screen)
+    void openMaterialButton(View view) {
+        Intent intent = new Intent(this, MaterialButtonActivity.class);
+//        if(hotel!=null){
+//            intent.putExtra(EXTRA_LONGITUDE,hotel.getLocation().getLongitude());
+//            intent.putExtra(EXTRA_LATITUDE,hotel.getLocation().getLatitude());
+//            intent.putExtra(EXTRA_HOTEL_NAME,hotel.getSummary().getHotelName());
+//        }
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.button_open_animation)
+    void openAnimation(View view) {
+        Intent intent = new Intent(this, LottieActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.button_open_constraint)
+    void openConstraint(View view) {
+        Intent intent = new Intent(this, ConstraintTestActivity.class);
         startActivity(intent);
     }
 

@@ -20,6 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.supercharge.shimmerlayout.ShimmerLayout;
 
 import static com.example.georgesamuel.dubaihotels.presentation.features.details.HotelDetailsActivity.EXTRA_HOTEL_DETAILS;
 
@@ -68,7 +69,8 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ItemsViewHol
 
         ItemsViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView); }
+            ButterKnife.bind(this, itemView);
+        }
     }
 
     private void setUpItemClick(View itemView, Hotel hotel) {

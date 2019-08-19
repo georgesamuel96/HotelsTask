@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".animations.LottieActivity">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -16,4 +17,8 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/diamond"
          />
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
