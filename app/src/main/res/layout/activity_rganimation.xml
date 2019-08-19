@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.animation.RGAnimationActivity">
+    tools:context=".animation.ui.RGAnimationActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -36,7 +36,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.example.georgesamuel.dubaihotels.ui.activities.animation.GridRecyclerView
+    <com.example.georgesamuel.dubaihotels.animation.ui.GridRecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"

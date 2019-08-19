@@ -58,5 +58,7 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
     implementation "android.arch.paging:runtime:1.0.1"
     implementation "android.arch.work:work-runtime:1.0.0"
+    implementation 'androidx.navigation:navigation-fragment:2.0.0'
+    implementation 'androidx.navigation:navigation-ui:2.0.0'
 
 }

@@ -11,12 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.WorkManagerActivity"></activity>
-        <activity android:name=".paging.ui.PagingActivity">
-
-        </activity>
-        <activity android:name=".ui.activities.RxJava.RxJavaActivity" />
-        <activity android:name=".ui.activities.RxJava.RxJavaOperatorsActivity" />
+        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".workManager.ui.WorkManagerActivity" />
+        <activity android:name=".paging.ui.PagingActivity"></activity>
+        <activity android:name=".RxJava.RxJavaActivity" />
+        <activity android:name=".RxJava.RxJavaOperatorsActivity" />
         <activity android:name=".designPatterns.ui.StructuralDPActivity" />
         <activity android:name=".designPatterns.ui.AdapterDPActivity" />
         <activity android:name=".designPatterns.ui.FactoryDPActivity" />
@@ -24,17 +23,16 @@
         <activity android:name=".designPatterns.ui.BehavioralDPActivity" />
         <activity android:name=".designPatterns.ui.BuilderDPActivity" />
         <activity android:name=".designPatterns.ui.CreationalDPActivity" />
-        <activity android:name=".designPatterns.ui.DesignPatternsActivity">
-        </activity>
-        <activity android:name=".ui.activities.animation.LottieAnimationActivity" />
-        <activity android:name=".ui.activities.animation.RGAnimationActivity" />
-        <activity android:name=".ui.activities.animation.RVAnimationActivity" />
-        <activity android:name=".ui.activities.animation.RecyclerViewAnimationActivity" />
-        <activity android:name=".ui.activities.animation.DetailsActivity" />
-        <activity android:name=".ui.activities.animation.SharedElementActivity" />
-        <activity android:name=".ui.activities.animation.ShimmerAnimationActivity" />
-        <activity android:name=".ui.activities.animation.AnimationResourcesActivity" />
-        <activity android:name=".ui.activities.animation.AnimationActivity" />
+        <activity android:name=".designPatterns.ui.DesignPatternsActivity"></activity>
+        <activity android:name=".animation.ui.LottieAnimationActivity" />
+        <activity android:name=".animation.ui.RGAnimationActivity" />
+        <activity android:name=".animation.ui.RVAnimationActivity" />
+        <activity android:name=".animation.ui.RecyclerViewAnimationActivity" />
+        <activity android:name=".animation.ui.DetailsActivity" />
+        <activity android:name=".animation.ui.SharedElementActivity" />
+        <activity android:name=".animation.ui.ShimmerAnimationActivity" />
+        <activity android:name=".animation.ui.AnimationResourcesActivity" />
+        <activity android:name=".animation.ui.AnimationActivity" />
         <activity android:name=".materialComponent.ui.ChipsActivity" />
         <activity android:name=".materialComponent.ui.BottomAppBarActivity" />
         <activity android:name=".materialComponent.ui.MaterialDialogActivity" />
@@ -46,12 +44,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".materialDesign.CoordinatorLayoutCustomBehaviorActivity" />
-        <activity android:name=".materialDesign.CoordinatorLayoutDefaultBehavior" >
-        </activity>
+        <activity android:name=".materialDesign.CoordinatorLayoutDefaultBehavior"></activity>
         <activity android:name=".materialDesign.ConstraintLayoutActivity" />
         <activity android:name=".Hotels.ui.DetailActivity" />
-        <activity android:name=".Hotels.ui.MainActivity">
-        </activity>
+        <activity android:name=".Hotels.ui.MainActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
