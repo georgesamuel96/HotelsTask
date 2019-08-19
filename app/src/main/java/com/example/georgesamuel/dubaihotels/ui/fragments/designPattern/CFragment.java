@@ -5,14 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ToggleButton;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.interfaces.Observer;
-import com.example.georgesamuel.dubaihotels.interfaces.Subject;
+import com.example.georgesamuel.dubaihotels.designPatterns.interfaces.Observer;
+import com.example.georgesamuel.dubaihotels.designPatterns.interfaces.Subject;
 
 import java.util.ArrayList;
 import java.util.List;

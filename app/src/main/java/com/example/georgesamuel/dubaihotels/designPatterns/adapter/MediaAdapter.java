@@ -1,9 +1,9 @@
-package com.example.georgesamuel.dubaihotels.adapter;
+package com.example.georgesamuel.dubaihotels.designPatterns.adapter;
 
-import com.example.georgesamuel.dubaihotels.interfaces.AdvancedMediaPlayer;
-import com.example.georgesamuel.dubaihotels.interfaces.MediaPlayer;
-import com.example.georgesamuel.dubaihotels.model.designPattern.MP4Player;
-import com.example.georgesamuel.dubaihotels.model.designPattern.VLCPlayer;
+import com.example.georgesamuel.dubaihotels.designPatterns.interfaces.AdvancedMediaPlayer;
+import com.example.georgesamuel.dubaihotels.designPatterns.interfaces.MediaPlayer;
+import com.example.georgesamuel.dubaihotels.designPatterns.model.MP4Player;
+import com.example.georgesamuel.dubaihotels.designPatterns.model.VLCPlayer;
 
 public class MediaAdapter implements MediaPlayer {
 

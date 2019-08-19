@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.designPattern;
+package com.example.georgesamuel.dubaihotels.designPatterns.ui;
 
 import android.os.Bundle;
 import android.widget.EditText;
@@ -9,9 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.model.designPattern.User;
-
-import java.io.IOException;
+import com.example.georgesamuel.dubaihotels.designPatterns.model.User;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

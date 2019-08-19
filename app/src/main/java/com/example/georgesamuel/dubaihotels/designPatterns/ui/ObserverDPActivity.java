@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.designPattern;
+package com.example.georgesamuel.dubaihotels.designPatterns.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 

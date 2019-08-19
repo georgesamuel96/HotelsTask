@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.interfaces.Observer;
+import com.example.georgesamuel.dubaihotels.designPatterns.interfaces.Observer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,6 +1,6 @@
-package com.example.georgesamuel.dubaihotels.model.designPattern;
+package com.example.georgesamuel.dubaihotels.designPatterns.model;
 
-import com.example.georgesamuel.dubaihotels.interfaces.AdvancedMediaPlayer;
+import com.example.georgesamuel.dubaihotels.designPatterns.interfaces.AdvancedMediaPlayer;
 
 public class VLCPlayer implements AdvancedMediaPlayer {
 

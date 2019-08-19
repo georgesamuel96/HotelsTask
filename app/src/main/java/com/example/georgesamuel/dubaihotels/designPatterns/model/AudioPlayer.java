@@ -1,7 +1,7 @@
-package com.example.georgesamuel.dubaihotels.model.designPattern;
+package com.example.georgesamuel.dubaihotels.designPatterns.model;
 
-import com.example.georgesamuel.dubaihotels.adapter.MediaAdapter;
-import com.example.georgesamuel.dubaihotels.interfaces.MediaPlayer;
+import com.example.georgesamuel.dubaihotels.designPatterns.adapter.MediaAdapter;
+import com.example.georgesamuel.dubaihotels.designPatterns.interfaces.MediaPlayer;
 
 public class AudioPlayer implements MediaPlayer {
 

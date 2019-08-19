@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.model.designPattern;
+package com.example.georgesamuel.dubaihotels.designPatterns.model;
 
 public class BikeWheel extends Wheel {
 

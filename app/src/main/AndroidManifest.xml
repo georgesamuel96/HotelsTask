@@ -18,14 +18,20 @@
         </activity>
         <activity android:name=".ui.activities.RxJava.RxJavaActivity" />
         <activity android:name=".ui.activities.RxJava.RxJavaOperatorsActivity" />
-        <activity android:name=".ui.activities.designPattern.StructuralDPActivity" />
-        <activity android:name=".ui.activities.designPattern.AdapterDPActivity" />
-        <activity android:name=".ui.activities.designPattern.FactoryDPActivity" />
-        <activity android:name=".ui.activities.designPattern.ObserverDPActivity" />
-        <activity android:name=".ui.activities.designPattern.BehavioralDPActivity" />
-        <activity android:name=".ui.activities.designPattern.BuilderDPActivity" />
-        <activity android:name=".ui.activities.designPattern.CreationalDPActivity" />
-        <activity android:name=".ui.activities.designPattern.DesignPatternsActivity" />
+        <activity android:name=".designPatterns.ui.StructuralDPActivity" />
+        <activity android:name=".designPatterns.ui.AdapterDPActivity" />
+        <activity android:name=".designPatterns.ui.FactoryDPActivity" />
+        <activity android:name=".designPatterns.ui.ObserverDPActivity" />
+        <activity android:name=".designPatterns.ui.BehavioralDPActivity" />
+        <activity android:name=".designPatterns.ui.BuilderDPActivity" />
+        <activity android:name=".designPatterns.ui.CreationalDPActivity" />
+        <activity android:name=".designPatterns.ui.DesignPatternsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.activities.animation.LottieAnimationActivity" />
         <activity android:name=".ui.activities.animation.RGAnimationActivity" />
         <activity android:name=".ui.activities.animation.RVAnimationActivity" />
@@ -41,11 +47,6 @@
         <activity android:name=".ui.activities.materialComponent.MaterialComponentActivity"></activity>
         <activity android:name=".materialDesign.CoordinatorLayoutCustomBehaviorActivity" />
         <activity android:name=".materialDesign.CoordinatorLayoutDefaultBehavior" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".materialDesign.ConstraintLayoutActivity" />
         <activity android:name=".Hotels.ui.DetailActivity" />

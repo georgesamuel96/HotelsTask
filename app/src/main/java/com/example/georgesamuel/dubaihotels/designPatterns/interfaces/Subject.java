@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.interfaces;
+package com.example.georgesamuel.dubaihotels.designPatterns.interfaces;
 
 public interface Subject {
     void register(Observer observer);

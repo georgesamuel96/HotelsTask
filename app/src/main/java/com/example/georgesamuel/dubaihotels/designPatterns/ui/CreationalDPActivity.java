@@ -1,8 +1,7 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.designPattern;
+package com.example.georgesamuel.dubaihotels.designPatterns.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -16,45 +15,41 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DesignPatternsActivity extends AppCompatActivity {
+public class CreationalDPActivity extends AppCompatActivity {
 
-    @BindView(R.id.designList)
-    ListView designLV;
+    @BindView(R.id.creationalDBLV)
+    ListView creationalDBLV;
     List<String> patternsList = new ArrayList<>();
     private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_design_patterns);
+        setContentView(R.layout.activity_creational_dp);
         ButterKnife.bind(this);
 
         initAdapter();
     }
 
     private void initAdapter() {
-        patternsList.add(getString(R.string.creational_design_pattern));
-        patternsList.add(getString(R.string.structural_design_patterns));
-        patternsList.add(getString(R.string.behavioral_design_pattern));
+        patternsList.add(getString(R.string.builder_design_pattern));
+        patternsList.add(getString(R.string.factory_design_pattern));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, patternsList);
-        designLV.setAdapter(adapter);
-        designLV.setOnItemClickListener((adapterView, view, position, l) -> {
+        creationalDBLV.setAdapter(adapter);
+        creationalDBLV.setOnItemClickListener((adapterView, view, position, l) -> {
             switch (position) {
                 case 0:
-                    goToActivity(CreationalDPActivity.class);
+                    goToActivity(BuilderDPActivity.class);
                     break;
                 case 1:
-                    goToActivity(StructuralDPActivity.class);
-                    break;
-                case 2:
-                    goToActivity(BehavioralDPActivity.class);
+                    goToActivity(FactoryDPActivity.class);
                     break;
             }
         });
     }
 
     private void goToActivity(Class mainClass) {
-        Intent intent = new Intent(DesignPatternsActivity.this, mainClass);
+        Intent intent = new Intent(CreationalDPActivity.this, mainClass);
         startActivity(intent);
     }
 }

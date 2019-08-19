@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.designPattern;
+package com.example.georgesamuel.dubaihotels.designPatterns.ui;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.georgesamuel.dubaihotels.R;
-import com.example.georgesamuel.dubaihotels.model.designPattern.Wheel;
-import com.example.georgesamuel.dubaihotels.model.designPattern.WheelFactory;
+import com.example.georgesamuel.dubaihotels.designPatterns.model.Wheel;
+import com.example.georgesamuel.dubaihotels.designPatterns.model.WheelFactory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

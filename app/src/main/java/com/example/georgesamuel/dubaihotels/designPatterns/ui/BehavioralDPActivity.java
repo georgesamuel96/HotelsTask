@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.ui.activities.designPattern;
+package com.example.georgesamuel.dubaihotels.designPatterns.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,37 +15,37 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class StructuralDPActivity extends AppCompatActivity {
+public class BehavioralDPActivity extends AppCompatActivity {
 
-    @BindView(R.id.structuralDBLV)
-    ListView structuralDBLV;
+    @BindView(R.id.behaviorDPLV)
+    ListView behaviorDPLV;
     List<String> patternsList = new ArrayList<>();
     private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_structural_dp);
+        setContentView(R.layout.activity_behavioral_dp);
         ButterKnife.bind(this);
 
         initAdapter();
     }
 
     private void initAdapter() {
-        patternsList.add(getString(R.string.adapter_design_pattern));
+        patternsList.add(getString(R.string.observer_design_pattern));
         adapter = new ArrayAdapter<>(this, R.layout.component_item, R.id.componentName, patternsList);
-        structuralDBLV.setAdapter(adapter);
-        structuralDBLV.setOnItemClickListener((adapterView, view, position, l) -> {
+        behaviorDPLV.setAdapter(adapter);
+        behaviorDPLV.setOnItemClickListener((adapterView, view, position, l) -> {
             switch (position) {
                 case 0:
-                    goToActivity(AdapterDPActivity.class);
+                    goToActivity(ObserverDPActivity.class);
                     break;
             }
         });
     }
 
     private void goToActivity(Class mainClass) {
-        Intent intent = new Intent(StructuralDPActivity.this, mainClass);
+        Intent intent = new Intent(BehavioralDPActivity.this, mainClass);
         startActivity(intent);
     }
 }

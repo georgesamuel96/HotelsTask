@@ -1,4 +1,4 @@
-package com.example.georgesamuel.dubaihotels.interfaces;
+package com.example.georgesamuel.dubaihotels.designPatterns.interfaces;
 
 public interface AdvancedMediaPlayer {
     String playVLC();
