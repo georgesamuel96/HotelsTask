@@ -18,6 +18,8 @@
         app:lottie_rawRes="@raw/diamond"
          />
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/openShared"
+        android:text="Open Shared"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
