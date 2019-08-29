@@ -32,6 +32,8 @@ public class MaterialBottomSheetActivity extends AppCompatActivity {
           bottomSheetBehavior.setPeekHeight(77);
 
     }
+
+
 @OnClick(R.id.button_open_modal_bottom_sheet)
     public void modalOnClick(View view){
     AddBottomDialogFragment addBottomDialogFragment =

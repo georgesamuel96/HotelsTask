@@ -7,5 +7,7 @@
     <color name="softGreen">#52916B</color>
     <color name="black">#000</color>
     <color name="shimmer_background_color">#b1b1b1</color>
+    <color name="mdtp_accent_color">#009688</color>
+    <color name="mdtp_accent_color_dark">#00796b</color>
 
 </resources>

@@ -37,7 +37,7 @@ public class HotelViewModel extends ViewModel {
                 .subscribeWith(new DisposableObserver <HotelsResponse>() {
                     @Override
                     public void onNext(HotelsResponse hotelsDetailsList) {
-                       hotelsDetailsLiveData.setValue(hotelsDetailsList);
+                        hotelsDetailsLiveData.setValue(hotelsDetailsList);
                     }
 
                     @Override
