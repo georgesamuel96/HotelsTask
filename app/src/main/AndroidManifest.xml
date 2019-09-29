@@ -2,16 +2,47 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.georgesamuel.dubaihotels">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.wifi" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
+        android:name=".presentation.features.HotelsApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".navigation.NavigationActivity">
+
+        </activity>
+        <activity android:name=".rxjava.RxJavaActivity"/>
+        <activity android:name=".designpatterns.DesignPatternsActivity"/>
+        <activity android:name=".animations.LottieActivity" />
+        <activity android:name=".animations.OptionsDetailsActivity" />
+        <activity android:name=".animations.OptionsCompatActivity" />
+        <activity android:name=".animations.ShimmerLayoutActivity" />
+        <activity android:name=".component.CollapsingToolBarActivity" />
+        <activity android:name=".component.MaterialButtonActivity"/>
+        <activity android:name=".component.MaterialBottomSheetActivity" />
+        <activity android:name=".coordinate.CustomBehaviourCoordinateActivity" />
+        <activity android:name=".constraint.ConstraintTestActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".presentation.features.map.MapActivity" />
+        <activity android:name=".presentation.features.details.HotelDetailsActivity" />
+        <activity android:name=".presentation.features.hotels.HotelsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

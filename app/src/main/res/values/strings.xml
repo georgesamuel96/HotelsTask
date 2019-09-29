@@ -1,3 +1,68 @@
 <resources>
     <string name="app_name">DubaiHotels</string>
+    <string name="error">error</string>
+    <string name="placeholder">place holder</string>
+    <string name="camera_settings">Camera Setting</string>
+    <string name="camera_value">Camera</string>
+    <string name="upload">Upload</string>
+    <string name="discard">Discard</string>
+    <string name="settings">Settings</string>
+    <string name="singapore">Singapore</string>
+    <string name="camera">Camera</string>
+    <string name="show_snack_bar">Show Snack Bar</string>
+    <string name="button_open_collapse">Open Collapse Screen</string>
+    <string name="button_open_bottom_sheet">Open Bottom Sheet Screen</string>
+    <string name="button_un_elevated">Un Elevated</string>
+    <string name="button_label_enabled">Label Enabled</string>
+    <string name="button_label_disabled">Label Disabled</string>
+    <string name="outlined_button_label_enabled">OutLine Button Label Enabled</string>
+    <string name="text_button_label_enabled">Text Button Label Enabled</string>
+    <string name="icon_button_label_enabled">Icon Button Label Enabled</string>
+    <string name="text_main_content">BottomSheetBehavior works in tandem with CoordinatorLayout to let you display content on a Bottom sheet (a layer on top of the main content), perform enter/exit animations, respond to dragging/swiping gestures, etc.
+
+Bottom sheets have 5 states:
+
+STATE_COLLAPSED: The bottom sheet is visible but only showing its peek height. This state is usually the ‘resting position’ of a Bottom Sheet. The peek height is chosen by the developer and should be enough to indicate there is extra content, allow the user to trigger an action or expand the bottom sheet.
+STATE_EXPANDED: The bottom sheet is visible and its maximum height and it is neither dragging or settling (see below).
+STATE_DRAGGING: The user is actively dragging the bottom sheet up or down.
+STATE_SETTLING: The bottom sheet is settling to specific height after a drag/swipe gesture. This will be the peek height, expanded height, or 0, in case the user action caused the bottom sheet to hide.
+STATE_HIDDEN: The bottom sheet is no longer visible.
+If you’re already using CoordinatorLayout for your activity, adding a bottom sheet is trivial:
+
+Add any View as a direct child of CoordinatorLayout.
+Apply the behavior by adding the following xml attribute app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+Set the desired behavior flags
+app:behavior_hideable whether this bottom sheet can be hidden by dragging it down.
+app:behavior_peekHeight the peek height for the collapsed state.
+app:behavior_skipCollapsed if the bottom sheet is hideable, and this is set to true, it does not have a collapsed state.
+Add any View as a direct child of CoordinatorLayout.
+Apply the behavior by adding the following xml attribute app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+Set the desired behavior flags
+app:behavior_hideable whether this bottom sheet can be hidden by dragging it down.
+app:behavior_peekHeight the peek height for the collapsed state.
+app:behavior_skipCollapsed if the bottom sheet is hideable, and this is set to true, it does not have a collapsed state.
+Add any View as a direct child of CoordinatorLayout.
+Apply the behavior by adding the following xml attribute app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+Set the desired behavior flags
+app:behavior_hideable whether this bottom sheet can be hidden by dragging it down.
+app:behavior_peekHeight the peek height for the collapsed state.
+app:behavior_skipCollapsed if the bottom sheet is hideable, and this is set to true, it does not have a collapsed state.
+To programmatically control the bottom sheet you can call the setState method on the BottomSheetBehavior</string>
+
+
+    <string name="sample_string">Lorem ipsum dolor sit amet, dolor arcu, sollicitudin vestibulum etiam ut tellus natoque. Vivamus per ultricies in a, orci alias malesuada nulla. Auctor amet sed velit, rhoncus id pharetra, quam sodales libero nec nascetur et nunc, duis sem a imperdiet est, posuere erat blandit eu sagittis eleifend enim. Eu ut eros cupiditate non, arcu eget aliquam duis et, at pellentesque tellus sodales. Id sem vitae, tellus mi fusce accumsan turpis at sapien, sodales faucibus lorem leo, eget tempor justo et vivamus, bibendum eget nisl wisi in consequatur malesuada. Est est est sapien, ridiculus augue mi ligula nibh aenean pellentesque, tortor sodales morbi malesuada amet, in vestibulum consectetuer mi ante.
+Nam vel amet nam consequat, augue libero rutrum fusce leo proin consequat, nunc orci tellus. Neque nulla in a in, nulla proin ac libero sed nonummy integer, urna etiam ante nam a lectus wisi, nunc etiam diam arcu congue, enim quisque. Pellentesque lorem. Augue mus feugiat molestie adipiscing praesent, accumsan sed fames ut integer condimentum lorem, aliquam posuere phasellus et ultrices. Nullam mauris, nam vitae.
+Gravida sed vitae amet. Pellentesque morbi morbi dui nec turpis. Nibh mus nunc nec nec vivamus, ut cras etiam erat, consequat porta. Duis tellus ut, aliquet quam ut nulla vivamus scelerisque justo, a velit id vitae. Consectetuer laoreet elementum, tellus montes. Quis nec volutpat phasellus taciti. Mollis sollicitudin, et eget consectetuer quod cras justo. Varius eu aenean dictum. Euismod sit suscipit lacinia nullam, vehicula varius at, lacus elit inceptos ligula lorem in, id volutpat amet enim ipsum laoreet, interdum elit vestibulum in eget. Varius mauris sociis esse massa venenatis sollicitudin, amet consequat habitant porttitor amet elementum amet, dolor ligula egestas pharetra metus feugiat, mi pretium ac dui.
+Imperdiet id felis lectus accumsan class, neque nullam quam, adipiscing turpis vel aliquam, praesent eget ullamcorper mauris, lacus etiam ipsum enim. Id tortor, tincidunt dignissim, id integer convallis, iaculis et erat, sunt aliquam. Lectus maecenas ultricies mi phasellus condimentum tempor, pede facilisis in et. In elit placerat ipsum praesent erat, nibh vitae, vel molestie nec sodales sed lectus quisque. Imperdiet nunc ipsum non ullamcorper, egestas ligula ac nam imperdiet, et mauris placerat in et, mi metus vitae, condimentum maecenas."/>
+</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="navigate_destination_button">Navigate to destination</string>
+    <string name="navigate_action_button">Navigate with action</string>
+    <string name="open_material_button">OpenMaterialButton</string>
+    <string name="open_custom_behaviour_coordinate">OpenCustomBehaviourCoordinate</string>
+    <string name="open_animation">OpenAnimation</string>
+    <string name="open_constraint">OpenConstraint</string>
 </resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.georgesamuel.dubaihotels.designpatterns.observer.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first">
+
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.georgesamuel.dubaihotels.navigation.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_from_home_to_first"
+            app:destination="@id/firstFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <argument
+            android:name="arg"
+            android:defaultValue="HI"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_homeFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+
+    </fragment>
+    <action
+        android:id="@+id/action_global_firstFragment"
+        app:destination="@id/firstFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.georgesamuel.dubaihotels.designpatterns.observer.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" />
+
+</navigation>

@@ -1,0 +1,81 @@
+package com.example.georgesamuel.dubaihotels.presentation.features.hotels;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.view.View;
+
+import com.example.georgesamuel.dubaihotels.R;
+import com.example.georgesamuel.dubaihotels.entities.Hotel;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import io.supercharge.shimmerlayout.ShimmerLayout;
+
+public class HotelsListActivity extends AppCompatActivity {
+
+    @BindView(R.id.shimmer_recycler_view)
+    RecyclerView hotelItemsRecyclerView;
+    @BindView(R.id.shimmer_layout)
+    ShimmerLayout shimmerLayout;
+    @BindView(R.id.parent_constraint_layout)
+    ConstraintLayout parentConstraintLayout;
+    private HotelViewModel viewModel;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+        viewModel = ViewModelProviders.of(this).get(HotelViewModel.class);
+        initHotelsRecycler();
+        observeGetHotels();
+        observeLoadingIndicator();
+        observeHasError();
+    }
+
+    private void setUpHotelAdapter(List<Hotel> hotelsList) {
+        HotelAdapter adapter = new HotelAdapter(hotelsList, HotelsListActivity.this);
+        hotelItemsRecyclerView.setAdapter(adapter);
+    }
+
+    private void initHotelsRecycler() {
+        hotelItemsRecyclerView.setHasFixedSize(true);
+        hotelItemsRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+
+    }
+
+    private void observeGetHotels() {
+        viewModel.hotelsDetailsLiveData.observe(this, hotelsDetails -> setUpHotelAdapter(hotelsDetails.getHotel()));
+    }
+
+    private void observeLoadingIndicator() {
+        viewModel.isLoading.observe(this, isLoading -> {
+            if (isLoading){
+                 shimmerLayout.setVisibility(View.VISIBLE);
+                 shimmerLayout.startShimmerAnimation();
+            }
+            else {
+                shimmerLayout.stopShimmerAnimation();
+                shimmerLayout.setVisibility(View.GONE);
+            }
+        });
+    }
+
+    private void observeHasError() {
+        viewModel.hasErrorLiveData.observe(this, hasError -> {
+            if (hasError) {
+                Snackbar.make(parentConstraintLayout, R.string.error, Snackbar.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+}
